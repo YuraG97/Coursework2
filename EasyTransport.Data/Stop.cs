@@ -10,11 +10,11 @@ namespace EasyTransport.Data
     public class Stop : DataBase<Stop>
     {
         public string Name { get; set; }
-        public TransportType TransportType1 { get; set; }
+        public TransportType StopTransportType { get; set; }
         public List<string> Comments { get; set; }
-
         public Stop() { }
 
+        [XmlIgnore]
         public List<Road> Roads
         {
             get
@@ -38,6 +38,21 @@ namespace EasyTransport.Data
             using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, stopsArr);
+            }
+        }
+
+        public static void Deserialize()
+        {
+            string fileName = "Stop.xml";
+            var formatter = new XmlSerializer(typeof(Stop[]));
+            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                Stop[] stopsArr = formatter.Deserialize(fs) as Stop[];
+                Items.Clear();
+                foreach (var stop in stopsArr)
+                {
+                    Items.Add(stop.Id, stop);
+                }
             }
         }
     }

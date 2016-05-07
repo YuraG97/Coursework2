@@ -13,6 +13,7 @@ namespace EasyTransport.Data
         {
             
         }
+        [XmlIgnore]
         public List<Trip> Trips
         {
             get

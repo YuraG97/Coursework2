@@ -9,20 +9,22 @@ namespace EasyTransport.Data
     [Serializable]
     public class RoadOnRoute : DataBase<RoadOnRoute>
     {
-        private Guid _road;
-        private Guid _route;
+        public Guid RoadGuid { get; set; }
+        public Guid RouteGuid { get; set; }
 
         public RoadOnRoute() { }
+
+        [XmlIgnore]
         public Road Road
         {
-            get { return Road.Items[_road]; }
-            set { _road = value.Id; }
+            get { return Road.Items[RoadGuid]; }
+            set { RoadGuid = value.Id; }
         }
-
+        [XmlIgnore]
         public Route Route
         {
-            get { return Route.Items[_route]; }
-            set { _route = value.Id; }
+            get { return Route.Items[RouteGuid]; }
+            set { RouteGuid = value.Id; }
         }
 
         public RoadOnRoute(Road road, Route route)

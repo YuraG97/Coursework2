@@ -9,8 +9,8 @@ namespace EasyTransport.Data
     [Serializable]
     public class Road : DataBase<Road>
     {
-        private Guid _stop1Id;
-        private Guid _stop2Id;
+        public Guid Stop1Id { get; set; }
+        public Guid Stop2Id { get; set; }
 
         public int Length { get; set; }
         public List<string> Comments { get; set; }
@@ -28,18 +28,20 @@ namespace EasyTransport.Data
             Stop2 = stop2;
         }
 
+        [XmlIgnore]
         public Stop Stop1
         {
-            get { return Stop.Items[_stop1Id]; }
-            set { _stop1Id = value.Id; }
+            get { return Stop.Items[Stop1Id]; }
+            set { Stop1Id = value.Id; }
         }
 
+        [XmlIgnore]
         public Stop Stop2
         {
-            get { return Stop.Items[_stop2Id]; }
-            set { _stop2Id = value.Id; }
+            get { return Stop.Items[Stop2Id]; }
+            set { Stop2Id = value.Id; }
         }
-
+        [XmlIgnore]
         public List<Route> Routes
         {
             get

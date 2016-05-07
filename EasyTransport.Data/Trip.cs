@@ -8,20 +8,23 @@ namespace EasyTransport.Data
     [Serializable]
     public class Trip : DataBase<Trip>
     {
-        private Guid _transport;
-        private Guid _route;
+        public Guid TransportGuid { get; set; }
+        public Guid RouteGuid { get; set; }
 
         public Trip() { }
+
+        [XmlIgnore]
         public Transport Transport
         {
-            get { return Transport.Items[_transport]; }
-            set { _transport = value.Id; }
+            get { return Transport.Items[TransportGuid]; }
+            set { TransportGuid = value.Id; }
         }
 
+        [XmlIgnore]
         public Route Route
         {
-            get { return Route.Items[_route]; }
-            set { _route = value.Id; }
+            get { return Route.Items[RouteGuid]; }
+            set { RouteGuid = value.Id; }
         }
 
         public static void Serialize()

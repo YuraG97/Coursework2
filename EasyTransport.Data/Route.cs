@@ -11,6 +11,7 @@ namespace EasyTransport.Data
     {
         public Route() { }
 
+        [XmlIgnore]
         public List<Road> Roads
         {
             get
@@ -27,6 +28,7 @@ namespace EasyTransport.Data
             }
         }
 
+        [XmlIgnore]
         public List<Trip> Trips
         {
             get
@@ -43,6 +45,7 @@ namespace EasyTransport.Data
             }
         }
 
+        [XmlIgnore]
         public List<Transport> Transports
         {
             get
