@@ -1,16 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Xml.Serialization;
 
 namespace EasyTransport.Data
 {
+    [Serializable]
     public class Stop : DataBase<Stop>
     {
-        private string _name; // назва зупинки
-        private TransportType _transportType; // тип зупинки
-        private List<string> _comments; // коментарі до зупинки
-        public Stop() : base()
-        {
+        public string Name { get; set; }
+        public TransportType TransportType1 { get; set; }
+        public List<string> Comments { get; set; }
 
-        }
+        public Stop() { }
 
         public List<Road> Roads
         {
@@ -25,6 +28,16 @@ namespace EasyTransport.Data
                     }
                 }
                 return res;
+            }
+        }
+        public static void Serialize()
+        {
+            string fileName = "Stop.xml";
+            Stop[] stopsArr = Items.Values.ToArray();
+            var formatter = new XmlSerializer(typeof(Stop[]));
+            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, stopsArr);
             }
         }
     }

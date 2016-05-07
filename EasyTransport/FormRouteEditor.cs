@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace EasyTransport
 {
-    public partial class FormAbout : Form
+    public partial class FormRouteEditor : Form
     {
-        public FormAbout()
+        public FormRouteEditor()
         {
             InitializeComponent();
-        }
-
-        private void CloseBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

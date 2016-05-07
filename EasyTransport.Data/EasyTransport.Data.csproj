@@ -42,13 +42,13 @@
   <ItemGroup>
     <Compile Include="DataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QualityType.cs" />
+    <Compile Include="Enums\QualityType.cs" />
     <Compile Include="Road.cs" />
     <Compile Include="RoadOnRoute.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Stop.cs" />
     <Compile Include="Transport.cs" />
-    <Compile Include="TransportType.cs" />
+    <Compile Include="Enums\TransportType.cs" />
     <Compile Include="Trip.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

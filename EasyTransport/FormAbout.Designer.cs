@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout));
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.License = new System.Windows.Forms.Label();
             this.Developer = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
@@ -50,16 +50,17 @@
             this.label7.TabIndex = 30;
             this.label7.Text = "Ліцензія";
             // 
-            // button1
+            // CloseBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(578, 296);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 38);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Закрити";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CloseBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CloseBtn.Location = new System.Drawing.Point(578, 296);
+            this.CloseBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(106, 38);
+            this.CloseBtn.TabIndex = 29;
+            this.CloseBtn.Text = "Закрити";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // License
             // 
@@ -131,7 +132,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 344);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.License);
             this.Controls.Add(this.Developer);
             this.Controls.Add(this.Logo);
@@ -154,7 +155,7 @@
         #endregion
 
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Label License;
         private System.Windows.Forms.Label Developer;
         private System.Windows.Forms.PictureBox Logo;

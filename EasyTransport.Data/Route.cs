@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Xml.Serialization;
 
 namespace EasyTransport.Data
 {
+    [Serializable]
     public class Route : DataBase<Route>
     {
-
-        public Route()
-        {
-            
-        }
+        public Route() { }
 
         public List<Road> Roads
         {
@@ -55,6 +56,17 @@ namespace EasyTransport.Data
                     }
                 }
                 return res;
+            }
+        }
+
+        public static void Serialize()
+        {
+            string fileName = "Route.xml";
+            Route[] roadsArr = Items.Values.ToArray();
+            var formatter = new XmlSerializer(typeof(Route[]));
+            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, roadsArr);
             }
         }
     }

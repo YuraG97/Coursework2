@@ -1,20 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Xml.Serialization;
 
 namespace EasyTransport.Data
 {
+    [Serializable]
     public class Road : DataBase<Road>
     {
-        private Guid _stop1Id; //ід 1 зупинки
-        private Guid _stop2Id; //ід 2 зупинки 
+        private Guid _stop1Id;
+        private Guid _stop2Id;
 
-        private int _length; //довжина ділянки
-        private List<string> _comments; //коментарі до ділянки
-        private string _description; // опис ділянки
-        private QualityType _quality; // якість ділянки
-        private TransportType _transportType; // тип дороги
-        private double _averageSpeed; // середня швидкість
-        private double _badWeaterSpeed; // швидкість при поганій погоді
+        public int Length { get; set; }
+        public List<string> Comments { get; set; }
+        public string Description { get; set; }
+        public QualityType Quality { get; set; }
+        public TransportType RoadTransportType { get; set; }
+        public double AverageSpeed { get; set; }
+        public double BadWeaterSpeed { get; set; }
+
+        public Road() { }
+
+        public Road(Stop stop1, Stop stop2)
+        {
+            Stop1 = stop1;
+            Stop2 = stop2;
+        }
+
         public Stop Stop1
         {
             get { return Stop.Items[_stop1Id]; }
@@ -25,12 +38,6 @@ namespace EasyTransport.Data
         {
             get { return Stop.Items[_stop2Id]; }
             set { _stop2Id = value.Id; }
-        }
-
-        public Road(Stop stop1, Stop stop2)
-        {
-            Stop1 = stop1;
-            Stop2 = stop2;
         }
 
         public List<Route> Routes
@@ -49,10 +56,15 @@ namespace EasyTransport.Data
             }
         }
 
-        public int Length
+        public static void Serialize()
         {
-            get { return _length; }
-            set { _length = value; }
+            string fileName = "Road.xml";
+            Road[] roadsArr = Items.Values.ToArray();
+            var formatter = new XmlSerializer(typeof(Road[]));
+            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, roadsArr);
+            }
         }
     }
 }

@@ -18,7 +18,22 @@ namespace EasyTransport
             InitializeComponent();
         }
 
-        private void проПрограмуToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void RoutesBtn_Click(object sender, EventArgs e)
+        {
+            new FormRoutes().Show();
+        }
+
+        private void TripsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TransportBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AboutProgramMenuItem_Click(object sender, EventArgs e)
         {
             new FormAbout().Show();
         }

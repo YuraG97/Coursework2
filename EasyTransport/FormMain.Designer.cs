@@ -29,78 +29,90 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.проПрограмуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
+            this.MainMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RoutesBtn = new System.Windows.Forms.Button();
             this.TransportBtn = new System.Windows.Forms.Button();
             this.TripsBtn = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // MainMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.проПрограмуToolStripMenuItem,
-            this.проПрограмуToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(483, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenuItem,
+            this.AboutProgramMenuItem});
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
+            this.MainMenu.Size = new System.Drawing.Size(566, 27);
+            this.MainMenu.TabIndex = 0;
+            this.MainMenu.Text = "menuStrip1";
             // 
-            // проПрограмуToolStripMenuItem
+            // MainMenuItem
             // 
-            this.проПрограмуToolStripMenuItem.Name = "проПрограмуToolStripMenuItem";
-            this.проПрограмуToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.проПрограмуToolStripMenuItem.Text = "Головна";
+            this.MainMenuItem.Name = "MainMenuItem";
+            this.MainMenuItem.Size = new System.Drawing.Size(65, 19);
+            this.MainMenuItem.Text = "Головна";
             // 
-            // проПрограмуToolStripMenuItem1
+            // AboutProgramMenuItem
             // 
-            this.проПрограмуToolStripMenuItem1.Name = "проПрограмуToolStripMenuItem1";
-            this.проПрограмуToolStripMenuItem1.Size = new System.Drawing.Size(99, 20);
-            this.проПрограмуToolStripMenuItem1.Text = "Про програму";
-            this.проПрограмуToolStripMenuItem1.Click += new System.EventHandler(this.проПрограмуToolStripMenuItem1_Click);
+            this.AboutProgramMenuItem.Name = "AboutProgramMenuItem";
+            this.AboutProgramMenuItem.Size = new System.Drawing.Size(99, 19);
+            this.AboutProgramMenuItem.Text = "Про програму";
+            this.AboutProgramMenuItem.Click += new System.EventHandler(this.AboutProgramMenuItem_Click);
             // 
             // RoutesBtn
             // 
-            this.RoutesBtn.Location = new System.Drawing.Point(12, 27);
+            this.RoutesBtn.Location = new System.Drawing.Point(15, 33);
+            this.RoutesBtn.Margin = new System.Windows.Forms.Padding(6);
             this.RoutesBtn.Name = "RoutesBtn";
-            this.RoutesBtn.Size = new System.Drawing.Size(226, 116);
+            this.RoutesBtn.Size = new System.Drawing.Size(261, 136);
             this.RoutesBtn.TabIndex = 1;
+            this.RoutesBtn.Text = "Маршрути";
             this.RoutesBtn.UseVisualStyleBackColor = true;
+            this.RoutesBtn.Click += new System.EventHandler(this.RoutesBtn_Click);
             // 
             // TransportBtn
             // 
-            this.TransportBtn.Location = new System.Drawing.Point(244, 27);
+            this.TransportBtn.Location = new System.Drawing.Point(15, 181);
+            this.TransportBtn.Margin = new System.Windows.Forms.Padding(6);
             this.TransportBtn.Name = "TransportBtn";
-            this.TransportBtn.Size = new System.Drawing.Size(226, 116);
+            this.TransportBtn.Size = new System.Drawing.Size(261, 136);
             this.TransportBtn.TabIndex = 2;
+            this.TransportBtn.Text = "Транспорт";
             this.TransportBtn.UseVisualStyleBackColor = true;
+            this.TransportBtn.Click += new System.EventHandler(this.TransportBtn_Click);
             // 
             // TripsBtn
             // 
-            this.TripsBtn.Location = new System.Drawing.Point(12, 149);
+            this.TripsBtn.Location = new System.Drawing.Point(288, 33);
+            this.TripsBtn.Margin = new System.Windows.Forms.Padding(6);
             this.TripsBtn.Name = "TripsBtn";
-            this.TripsBtn.Size = new System.Drawing.Size(226, 116);
+            this.TripsBtn.Size = new System.Drawing.Size(261, 136);
             this.TripsBtn.TabIndex = 3;
+            this.TripsBtn.Text = "Рейси";
             this.TripsBtn.UseVisualStyleBackColor = true;
+            this.TripsBtn.Click += new System.EventHandler(this.TripsBtn_Click);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 274);
+            this.ClientSize = new System.Drawing.Size(566, 331);
             this.Controls.Add(this.TripsBtn);
             this.Controls.Add(this.TransportBtn);
             this.Controls.Add(this.RoutesBtn);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.MainMenu);
+            this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.MainMenu;
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormMain";
             this.Text = "EasyTransport";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,9 +120,9 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem1;
+        private System.Windows.Forms.MenuStrip MainMenu;
+        private System.Windows.Forms.ToolStripMenuItem MainMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutProgramMenuItem;
         private System.Windows.Forms.Button RoutesBtn;
         private System.Windows.Forms.Button TransportBtn;
         private System.Windows.Forms.Button TripsBtn;
