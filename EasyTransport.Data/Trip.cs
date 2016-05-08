@@ -27,15 +27,16 @@ namespace EasyTransport.Data
             set { RouteGuid = value.Id; }
         }
 
+        public static void Deserialize()
+        {
+            string fileName = "Trip.xml";
+            Deserialize(fileName);
+        }
+
         public static void Serialize()
         {
             string fileName = "Trip.xml";
-            Trip[] stopsArr = Items.Values.ToArray();
-            var formatter = new XmlSerializer(typeof(Trip[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, stopsArr);
-            }
+            Serialize(fileName);
         }
     }
 }

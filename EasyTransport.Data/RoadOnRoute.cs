@@ -33,15 +33,16 @@ namespace EasyTransport.Data
             Route = route;
         }
 
+        public static void Deserialize()
+        {
+            string fileName = "RoadOnRoute.xml";
+            Deserialize(fileName);
+        }
+
         public static void Serialize()
         {
             string fileName = "RoadOnRoute.xml";
-            RoadOnRoute[] stopsArr = Items.Values.ToArray();
-            var formatter = new XmlSerializer(typeof(RoadOnRoute[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, stopsArr);
-            }
+            Serialize(fileName);
         }
     }
 }

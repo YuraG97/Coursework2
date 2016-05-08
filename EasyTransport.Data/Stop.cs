@@ -30,30 +30,17 @@ namespace EasyTransport.Data
                 return res;
             }
         }
-        public static void Serialize()
-        {
-            string fileName = "Stop.xml";
-            Stop[] stopsArr = Items.Values.ToArray();
-            var formatter = new XmlSerializer(typeof(Stop[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, stopsArr);
-            }
-        }
 
         public static void Deserialize()
         {
             string fileName = "Stop.xml";
-            var formatter = new XmlSerializer(typeof(Stop[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                Stop[] stopsArr = formatter.Deserialize(fs) as Stop[];
-                Items.Clear();
-                foreach (var stop in stopsArr)
-                {
-                    Items.Add(stop.Id, stop);
-                }
-            }
+            Deserialize(fileName);
+        }
+
+        public static void Serialize()
+        {
+            string fileName = "Stop.xml";
+            Serialize(fileName);
         }
     }
 }

@@ -9,10 +9,8 @@ namespace EasyTransport.Data
     [Serializable]
     public class Transport : DataBase<Transport>
     {
-        public Transport()
-        {
-            
-        }
+        public Transport() { }
+
         [XmlIgnore]
         public List<Trip> Trips
         {
@@ -30,15 +28,16 @@ namespace EasyTransport.Data
             }
         }
 
+        public static void Deserialize()
+        {
+            string fileName = "Transport.xml";
+            Deserialize(fileName);
+        }
+
         public static void Serialize()
         {
             string fileName = "Transport.xml";
-            Transport[] stopsArr = Items.Values.ToArray();
-            var formatter = new XmlSerializer(typeof(Transport[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, stopsArr);
-            }
+            Serialize(fileName);
         }
     }
 }

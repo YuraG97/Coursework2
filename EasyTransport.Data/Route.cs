@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 
 namespace EasyTransport.Data
@@ -62,15 +63,16 @@ namespace EasyTransport.Data
             }
         }
 
+        public static void Deserialize()
+        {
+            string fileName = "Route.xml";
+            Deserialize(fileName);
+        }
+
         public static void Serialize()
         {
             string fileName = "Route.xml";
-            Route[] roadsArr = Items.Values.ToArray();
-            var formatter = new XmlSerializer(typeof(Route[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, roadsArr);
-            }
+            Serialize(fileName);
         }
     }
 }

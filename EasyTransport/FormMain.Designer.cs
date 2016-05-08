@@ -111,6 +111,8 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormMain";
             this.Text = "EasyTransport";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.ResumeLayout(false);

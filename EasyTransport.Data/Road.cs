@@ -57,16 +57,16 @@ namespace EasyTransport.Data
                 return res;
             }
         }
+        public static void Deserialize()
+        {
+            string fileName = "Road.xml";
+            Deserialize(fileName);
+        }
 
         public static void Serialize()
         {
             string fileName = "Road.xml";
-            Road[] roadsArr = Items.Values.ToArray();
-            var formatter = new XmlSerializer(typeof(Road[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, roadsArr);
-            }
+            Serialize(fileName);
         }
     }
 }
