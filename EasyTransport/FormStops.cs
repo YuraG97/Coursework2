@@ -30,21 +30,10 @@ namespace EasyTransport
             TransportTypeCmbbox.SelectedIndex = 0;
         }
 
-        private void AddNewStopBtn_Click(object sender, EventArgs e)
-        {
-            new FormStopEditor().ShowDialog();
-            UpdateListStops();
-        }
-
         private void UpdateListStops()
         {
             StopsLstbox.Items.Clear();
-            if (TransportTypeCmbbox.SelectedIndex == -1)
-            {
-                MessageBox.Show("Щоб створити зупинку виберіть її тип транспорту!", "Увага", MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            }
-            else if (TransportTypeCmbbox.SelectedIndex >= 0)
+            if (TransportTypeCmbbox.SelectedIndex >= 0)
             {
                 Dictionary<Guid, Stop> items = new Dictionary<Guid, Stop>();
                 if (TransportTypeCmbbox.SelectedIndex == 0)
@@ -53,12 +42,12 @@ namespace EasyTransport
                 }
                 else
                 {
-                    var trType = (TransportType) (TransportTypeCmbbox.SelectedIndex - 1);
+                    var trType = (TransportType)(TransportTypeCmbbox.SelectedIndex - 1);
                     foreach (var item in Stop.Items)
                     {
                         if (item.Value.StopTransportType == trType)
                         {
-                            items.Add(item.Key,item.Value);
+                            items.Add(item.Key, item.Value);
                         }
                     }
                 }
@@ -70,6 +59,12 @@ namespace EasyTransport
                     }
                 }
             }
+        }
+
+        private void AddNewStopBtn_Click(object sender, EventArgs e)
+        {
+            new FormStopEditor().ShowDialog();
+            UpdateListStops();
         }
 
         private void ChangeStopBtn_Click(object sender, EventArgs e)

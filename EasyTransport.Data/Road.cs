@@ -12,7 +12,8 @@ namespace EasyTransport.Data
         public Guid Stop1Id { get; set; }
         public Guid Stop2Id { get; set; }
 
-        public int Length { get; set; }
+        public double Length { get; set; }
+        public bool IsTwoDir { get; set; }
         public List<string> Comments { get; set; }
         public string Description { get; set; }
         public QualityType Quality { get; set; }
@@ -28,6 +29,16 @@ namespace EasyTransport.Data
             Stop2 = stop2;
         }
 
+        public Road(Stop stop1, Stop stop2, bool twoDir, double length, TransportType trType, QualityType quality)
+        {
+            Stop1 = stop1;
+            Stop2 = stop2;
+            IsTwoDir = twoDir;
+            Length = length;
+            RoadTransportType = trType;
+            Quality = quality;
+        }
+
         [XmlIgnore]
         public Stop Stop1
         {
@@ -41,6 +52,7 @@ namespace EasyTransport.Data
             get { return Stop.Items[Stop2Id]; }
             set { Stop2Id = value.Id; }
         }
+
         [XmlIgnore]
         public List<Route> Routes
         {
@@ -57,6 +69,13 @@ namespace EasyTransport.Data
                 return res;
             }
         }
+
+        public override string ToString()
+        {
+            string res = string.Format("{0,-12}-{1,-12}-{2,-12}-{3}", Stop1.Name, Stop2.Name, RoadTransportType, Id.ToString("N"));
+            return res;
+        }
+
         public static void Deserialize()
         {
             string fileName = "Road.xml";
