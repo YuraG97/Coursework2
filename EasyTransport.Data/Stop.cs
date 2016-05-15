@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -11,8 +12,22 @@ namespace EasyTransport.Data
     {
         public string Name { get; set; }
         public TransportType StopTransportType { get; set; }
+        public PointF Coordinates { get; set; }
         public List<string> Comments { get; set; }
+
         public Stop() { }
+
+        public Stop(TransportType trType, decimal x, decimal y, string name)
+        {
+            StopTransportType = trType;
+            Coordinates = new PointF((float) x, (float) y);
+            Name = name;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - id#{Id.ToString("N")}";
+        }
 
         [XmlIgnore]
         public List<Road> Roads

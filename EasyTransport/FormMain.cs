@@ -20,7 +20,7 @@ namespace EasyTransport
 
         private void RoutesBtn_Click(object sender, EventArgs e)
         {
-            new FormRoutes().Show();
+            new FormRoutes().ShowDialog();
         }
 
         private void TripsBtn_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace EasyTransport
             Stop.Serialize();
             Transport.Serialize();
             Trip.Serialize();
-            MessageBox.Show("Data succesful saved!");
+            //MessageBox.Show("Data succesful saved!");
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -99,7 +99,17 @@ namespace EasyTransport
             Stop.Deserialize();
             Transport.Deserialize();
             Trip.Deserialize();
-            MessageBox.Show("Data succesful loaded!");
+            //MessageBox.Show("Data succesful loaded!");
+        }
+
+        private void RoadsBtn_Click(object sender, EventArgs e)
+        {
+            new FormRoutes().ShowDialog();
+        }
+
+        private void StopsBtn_Click(object sender, EventArgs e)
+        {
+            new FormStops().ShowDialog();
         }
     }
 }

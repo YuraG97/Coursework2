@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.RoutesLstbox = new System.Windows.Forms.ListBox();
             this.TransportTypeLbl = new System.Windows.Forms.Label();
             this.TransportTypeCmbbox = new System.Windows.Forms.ComboBox();
-            this.AddNewRoute = new System.Windows.Forms.Button();
-            this.ChangeRoute = new System.Windows.Forms.Button();
-            this.RemoveRoute = new System.Windows.Forms.Button();
+            this.AddNewRouteBtn = new System.Windows.Forms.Button();
+            this.ChangeRouteBtn = new System.Windows.Forms.Button();
+            this.RemoveRouteBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // RoutesLstbox
             // 
-            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(15, 50);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(612, 340);
-            this.listBox1.TabIndex = 0;
+            this.RoutesLstbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RoutesLstbox.FormattingEnabled = true;
+            this.RoutesLstbox.ItemHeight = 21;
+            this.RoutesLstbox.Location = new System.Drawing.Point(15, 50);
+            this.RoutesLstbox.Margin = new System.Windows.Forms.Padding(6);
+            this.RoutesLstbox.Name = "RoutesLstbox";
+            this.RoutesLstbox.Size = new System.Drawing.Size(612, 340);
+            this.RoutesLstbox.TabIndex = 0;
             // 
             // TransportTypeLbl
             // 
@@ -63,54 +63,54 @@
             this.TransportTypeCmbbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TransportTypeCmbbox.FormattingEnabled = true;
             this.TransportTypeCmbbox.Location = new System.Drawing.Point(350, 9);
-            this.TransportTypeCmbbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TransportTypeCmbbox.Margin = new System.Windows.Forms.Padding(6);
             this.TransportTypeCmbbox.Name = "TransportTypeCmbbox";
             this.TransportTypeCmbbox.Size = new System.Drawing.Size(277, 29);
             this.TransportTypeCmbbox.TabIndex = 2;
             // 
-            // AddNewRoute
+            // AddNewRouteBtn
             // 
-            this.AddNewRoute.Location = new System.Drawing.Point(15, 400);
-            this.AddNewRoute.Name = "AddNewRoute";
-            this.AddNewRoute.Size = new System.Drawing.Size(200, 66);
-            this.AddNewRoute.TabIndex = 3;
-            this.AddNewRoute.Text = "Новий маршрут";
-            this.AddNewRoute.UseVisualStyleBackColor = true;
-            this.AddNewRoute.Click += new System.EventHandler(this.AddNewRoute_Click);
+            this.AddNewRouteBtn.Location = new System.Drawing.Point(15, 400);
+            this.AddNewRouteBtn.Name = "AddNewRouteBtn";
+            this.AddNewRouteBtn.Size = new System.Drawing.Size(200, 66);
+            this.AddNewRouteBtn.TabIndex = 3;
+            this.AddNewRouteBtn.Text = "Новий маршрут";
+            this.AddNewRouteBtn.UseVisualStyleBackColor = true;
+            this.AddNewRouteBtn.Click += new System.EventHandler(this.AddNewRoute_Click);
             // 
-            // ChangeRoute
+            // ChangeRouteBtn
             // 
-            this.ChangeRoute.Location = new System.Drawing.Point(221, 400);
-            this.ChangeRoute.Name = "ChangeRoute";
-            this.ChangeRoute.Size = new System.Drawing.Size(200, 66);
-            this.ChangeRoute.TabIndex = 4;
-            this.ChangeRoute.Text = "Редагувати маршрут";
-            this.ChangeRoute.UseVisualStyleBackColor = true;
-            this.ChangeRoute.Click += new System.EventHandler(this.ChangeRoute_Click);
+            this.ChangeRouteBtn.Location = new System.Drawing.Point(221, 400);
+            this.ChangeRouteBtn.Name = "ChangeRouteBtn";
+            this.ChangeRouteBtn.Size = new System.Drawing.Size(200, 66);
+            this.ChangeRouteBtn.TabIndex = 4;
+            this.ChangeRouteBtn.Text = "Редагувати маршрут";
+            this.ChangeRouteBtn.UseVisualStyleBackColor = true;
+            this.ChangeRouteBtn.Click += new System.EventHandler(this.ChangeRoute_Click);
             // 
-            // RemoveRoute
+            // RemoveRouteBtn
             // 
-            this.RemoveRoute.Location = new System.Drawing.Point(427, 400);
-            this.RemoveRoute.Name = "RemoveRoute";
-            this.RemoveRoute.Size = new System.Drawing.Size(200, 66);
-            this.RemoveRoute.TabIndex = 5;
-            this.RemoveRoute.Text = "Видалити маршрут";
-            this.RemoveRoute.UseVisualStyleBackColor = true;
-            this.RemoveRoute.Click += new System.EventHandler(this.RemoveRoute_Click);
+            this.RemoveRouteBtn.Location = new System.Drawing.Point(427, 400);
+            this.RemoveRouteBtn.Name = "RemoveRouteBtn";
+            this.RemoveRouteBtn.Size = new System.Drawing.Size(200, 66);
+            this.RemoveRouteBtn.TabIndex = 5;
+            this.RemoveRouteBtn.Text = "Видалити маршрут";
+            this.RemoveRouteBtn.UseVisualStyleBackColor = true;
+            this.RemoveRouteBtn.Click += new System.EventHandler(this.RemoveRoute_Click);
             // 
             // FormRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 478);
-            this.Controls.Add(this.RemoveRoute);
-            this.Controls.Add(this.ChangeRoute);
-            this.Controls.Add(this.AddNewRoute);
+            this.Controls.Add(this.RemoveRouteBtn);
+            this.Controls.Add(this.ChangeRouteBtn);
+            this.Controls.Add(this.AddNewRouteBtn);
             this.Controls.Add(this.TransportTypeCmbbox);
             this.Controls.Add(this.TransportTypeLbl);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.RoutesLstbox);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormRoutes";
             this.Text = "Маршрути";
             this.ResumeLayout(false);
@@ -120,11 +120,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox RoutesLstbox;
         private System.Windows.Forms.Label TransportTypeLbl;
         private System.Windows.Forms.ComboBox TransportTypeCmbbox;
-        private System.Windows.Forms.Button AddNewRoute;
-        private System.Windows.Forms.Button ChangeRoute;
-        private System.Windows.Forms.Button RemoveRoute;
+        private System.Windows.Forms.Button AddNewRouteBtn;
+        private System.Windows.Forms.Button ChangeRouteBtn;
+        private System.Windows.Forms.Button RemoveRouteBtn;
     }
 }

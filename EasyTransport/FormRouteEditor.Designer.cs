@@ -77,6 +77,7 @@
             this.Controls.Add(this.RouteNameTxtbox);
             this.Controls.Add(this.RouteNameLbl);
             this.Name = "FormRouteEditor";
+            this.Text = "Редактор маршрутів";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -35,6 +35,8 @@
             this.RoutesBtn = new System.Windows.Forms.Button();
             this.TransportBtn = new System.Windows.Forms.Button();
             this.TripsBtn = new System.Windows.Forms.Button();
+            this.RoadsBtn = new System.Windows.Forms.Button();
+            this.StopsBtn = new System.Windows.Forms.Button();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,11 +98,33 @@
             this.TripsBtn.UseVisualStyleBackColor = true;
             this.TripsBtn.Click += new System.EventHandler(this.TripsBtn_Click);
             // 
+            // RoadsBtn
+            // 
+            this.RoadsBtn.Location = new System.Drawing.Point(288, 181);
+            this.RoadsBtn.Name = "RoadsBtn";
+            this.RoadsBtn.Size = new System.Drawing.Size(261, 63);
+            this.RoadsBtn.TabIndex = 4;
+            this.RoadsBtn.Text = "Дороги";
+            this.RoadsBtn.UseVisualStyleBackColor = true;
+            this.RoadsBtn.Click += new System.EventHandler(this.RoadsBtn_Click);
+            // 
+            // StopsBtn
+            // 
+            this.StopsBtn.Location = new System.Drawing.Point(288, 250);
+            this.StopsBtn.Name = "StopsBtn";
+            this.StopsBtn.Size = new System.Drawing.Size(261, 67);
+            this.StopsBtn.TabIndex = 5;
+            this.StopsBtn.Text = "Зупинки";
+            this.StopsBtn.UseVisualStyleBackColor = true;
+            this.StopsBtn.Click += new System.EventHandler(this.StopsBtn_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 331);
+            this.Controls.Add(this.StopsBtn);
+            this.Controls.Add(this.RoadsBtn);
             this.Controls.Add(this.TripsBtn);
             this.Controls.Add(this.TransportBtn);
             this.Controls.Add(this.RoutesBtn);
@@ -128,6 +152,8 @@
         private System.Windows.Forms.Button RoutesBtn;
         private System.Windows.Forms.Button TransportBtn;
         private System.Windows.Forms.Button TripsBtn;
+        private System.Windows.Forms.Button RoadsBtn;
+        private System.Windows.Forms.Button StopsBtn;
     }
 }
 

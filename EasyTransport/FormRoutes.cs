@@ -21,7 +21,7 @@ namespace EasyTransport
 
         private void InitTransportTypes()
         {
-            string[] transpTypes = {"Bus", "Tramway", "Metro", "Trolleybus"};
+            string[] transpTypes = {"All", "Bus", "Tramway", "Metro", "Trolleybus"};
             foreach (var trType in transpTypes)
             {
                 TransportTypeCmbbox.Items.Add(trType);
@@ -34,7 +34,7 @@ namespace EasyTransport
             if (TransportTypeCmbbox.SelectedIndex == -1)
             {
                 MessageBox.Show("Щоб створити маршрут виберіть його тип транспорту!", "Увага", MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation,MessageBoxDefaultButton.Button3);
+                    MessageBoxIcon.Exclamation,MessageBoxDefaultButton.Button1);
             }
             else if (TransportTypeCmbbox.SelectedIndex >= 0)
             {

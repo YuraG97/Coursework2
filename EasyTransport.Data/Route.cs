@@ -63,6 +63,7 @@ namespace EasyTransport.Data
             }
         }
 
+#region Serialize And Deserialize 
         public static void Deserialize()
         {
             string fileName = "Route.xml";
@@ -74,5 +75,7 @@ namespace EasyTransport.Data
             string fileName = "Route.xml";
             Serialize(fileName);
         }
+#endregion
+
     }
 }

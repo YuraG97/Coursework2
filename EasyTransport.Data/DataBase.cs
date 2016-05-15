@@ -24,6 +24,11 @@ namespace EasyTransport.Data
             return "Object #" + Id;
         }
 
+        public static void RemoveItem(Guid itemId)
+        {
+            Items.Remove(itemId);
+        }
+
         protected static void Deserialize(string fileName)
         {
             var formatter = new XmlSerializer(typeof(T[]));
@@ -48,7 +53,7 @@ namespace EasyTransport.Data
         {
             T[] itemsArr = Items.Values.ToArray();
             var formatter = new XmlSerializer(typeof(T[]));
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            using (var fs = new FileStream(fileName, FileMode.Create))
             {
                 formatter.Serialize(fs, itemsArr);
             }
