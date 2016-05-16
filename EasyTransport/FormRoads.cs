@@ -69,9 +69,10 @@ namespace EasyTransport
 
         private void ChangeRoadBtn_Click(object sender, EventArgs e)
         {
-            if (RoadsLstbox.SelectedItem != null)
+            var selectedRoad = RoadsLstbox.SelectedItem as Road;
+            if (selectedRoad != null)
             {
-                new FormRoadEditor(RoadsLstbox.SelectedItem as Road).ShowDialog();
+                new FormRoadEditor(selectedRoad).ShowDialog();
             }
             UpdateListRoads();
         }

@@ -28,99 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.StopNameTxtbox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.StopCoordYNumupdown = new System.Windows.Forms.NumericUpDown();
+            this.StopCoordXNumupdown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TransportTypeCmbbox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CreateNewStop = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StopCoordYNumupdown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StopCoordXNumupdown)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // StopNameTxtbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 17;
+            this.StopNameTxtbox.Location = new System.Drawing.Point(152, 52);
+            this.StopNameTxtbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StopNameTxtbox.Name = "StopNameTxtbox";
+            this.StopNameTxtbox.Size = new System.Drawing.Size(160, 27);
+            this.StopNameTxtbox.TabIndex = 17;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(81, 86);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(108, 129);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 13);
+            this.label5.Size = new System.Drawing.Size(17, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "Y";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(81, 60);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(108, 92);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(14, 13);
+            this.label4.Size = new System.Drawing.Size(18, 20);
             this.label4.TabIndex = 15;
             this.label4.Text = "X";
             // 
-            // numericUpDown2
+            // StopCoordYNumupdown
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(101, 84);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 14;
+            this.StopCoordYNumupdown.Location = new System.Drawing.Point(152, 126);
+            this.StopCoordYNumupdown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StopCoordYNumupdown.Name = "StopCoordYNumupdown";
+            this.StopCoordYNumupdown.Size = new System.Drawing.Size(160, 27);
+            this.StopCoordYNumupdown.TabIndex = 14;
             // 
-            // numericUpDown1
+            // StopCoordXNumupdown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(101, 58);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 13;
+            this.StopCoordXNumupdown.Location = new System.Drawing.Point(152, 89);
+            this.StopCoordXNumupdown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StopCoordXNumupdown.Name = "StopCoordXNumupdown";
+            this.StopCoordXNumupdown.Size = new System.Drawing.Size(160, 27);
+            this.StopCoordXNumupdown.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 60);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(11, 92);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "Координати";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 36);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(11, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 11;
             this.label2.Text = "Назва";
             // 
-            // comboBox1
+            // TransportTypeCmbbox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(101, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
+            this.TransportTypeCmbbox.FormattingEnabled = true;
+            this.TransportTypeCmbbox.Location = new System.Drawing.Point(152, 11);
+            this.TransportTypeCmbbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TransportTypeCmbbox.Name = "TransportTypeCmbbox";
+            this.TransportTypeCmbbox.Size = new System.Drawing.Size(160, 28);
+            this.TransportTypeCmbbox.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 10);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(11, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.Size = new System.Drawing.Size(118, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Тип транспорту";
             // 
             // CreateNewStop
             // 
-            this.CreateNewStop.Location = new System.Drawing.Point(187, 110);
+            this.CreateNewStop.Location = new System.Drawing.Point(330, 132);
+            this.CreateNewStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CreateNewStop.Name = "CreateNewStop";
-            this.CreateNewStop.Size = new System.Drawing.Size(85, 38);
+            this.CreateNewStop.Size = new System.Drawing.Size(113, 58);
             this.CreateNewStop.TabIndex = 18;
             this.CreateNewStop.Text = "Створити";
             this.CreateNewStop.UseVisualStyleBackColor = true;
@@ -128,23 +143,25 @@
             // 
             // FormStopEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 155);
+            this.ClientSize = new System.Drawing.Size(450, 195);
             this.Controls.Add(this.CreateNewStop);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.StopNameTxtbox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.StopCoordYNumupdown);
+            this.Controls.Add(this.StopCoordXNumupdown);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.TransportTypeCmbbox);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormStopEditor";
             this.Text = "Редактор зупинок";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StopCoordYNumupdown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StopCoordXNumupdown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,14 +169,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox StopNameTxtbox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown StopCoordYNumupdown;
+        private System.Windows.Forms.NumericUpDown StopCoordXNumupdown;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox TransportTypeCmbbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button CreateNewStop;
     }

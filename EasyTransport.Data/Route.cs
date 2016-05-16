@@ -10,6 +10,8 @@ namespace EasyTransport.Data
     [Serializable]
     public class Route : DataBase<Route>
     {
+        public TransportType RouteTransportType { get; set; }
+        public string Name { get; set; }
         public Route() { }
 
         [XmlIgnore]
@@ -63,7 +65,7 @@ namespace EasyTransport.Data
             }
         }
 
-#region Serialize And Deserialize 
+        #region Serialize And Deserialize 
         public static void Deserialize()
         {
             string fileName = "Route.xml";

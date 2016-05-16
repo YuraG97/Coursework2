@@ -27,6 +27,7 @@ namespace EasyTransport.Data
             set { RouteGuid = value.Id; }
         }
 
+        #region Serialize And Deserialize
         public static void Deserialize()
         {
             string fileName = "Trip.xml";
@@ -38,5 +39,6 @@ namespace EasyTransport.Data
             string fileName = "Trip.xml";
             Serialize(fileName);
         }
+#endregion
     }
 }

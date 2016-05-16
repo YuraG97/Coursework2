@@ -28,10 +28,10 @@ namespace EasyTransport
             _nowRoad = editRoad;
             SaveOrCreateRoadBtn.Text = "Зберегти";
             TransportTypeCmbbox.SelectedIndex = (int) editRoad.RoadTransportType;
-            numericUpDown1.Value = (decimal) editRoad.Length;
-            comboBox2.SelectedItem = editRoad.Stop1;
-            comboBox3.SelectedItem = editRoad.Stop2;
-            checkBox1.Checked = editRoad.IsTwoDir;
+            RoadLengthNumupdown.Value = (decimal) editRoad.Length;
+            FirstStopCmbbox.SelectedItem = editRoad.Stop1;
+            SecondStopCmbbox.SelectedItem = editRoad.Stop2;
+            IsRoadTwoDirChckbox.Checked = editRoad.IsTwoDir;
             QualityCmbbox.SelectedIndex = (int) editRoad.Quality;
         }
 
@@ -54,10 +54,10 @@ namespace EasyTransport
         {
             if (CheckValues())
             {
-                _nowRoad.Length = (double) numericUpDown1.Value;
-                _nowRoad.Stop1 = comboBox2.SelectedItem as Stop;
-                _nowRoad.Stop2 = comboBox3.SelectedItem as Stop;
-                _nowRoad.IsTwoDir = checkBox1.Checked;
+                _nowRoad.Length = (double) RoadLengthNumupdown.Value;
+                _nowRoad.Stop1 = FirstStopCmbbox.SelectedItem as Stop;
+                _nowRoad.Stop2 = SecondStopCmbbox.SelectedItem as Stop;
+                _nowRoad.IsTwoDir = IsRoadTwoDirChckbox.Checked;
                 _nowRoad.Quality = (QualityType) QualityCmbbox.SelectedIndex;
                 _nowRoad.RoadTransportType = (TransportType) TransportTypeCmbbox.SelectedIndex;
             }
@@ -69,16 +69,16 @@ namespace EasyTransport
 
         private bool CheckValues()
         {
-            return comboBox2.SelectedItem != null && comboBox3.SelectedItem != null &&
+            return FirstStopCmbbox.SelectedItem != null && SecondStopCmbbox.SelectedItem != null &&
                    TransportTypeCmbbox.SelectedIndex >= 0 && QualityCmbbox.SelectedIndex >= 0;
         }
 
         private void TransportTypeCmbbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.Items.Clear();
-            comboBox3.Items.Clear();
-            comboBox2.ResetText();
-            comboBox3.ResetText();
+            FirstStopCmbbox.Items.Clear();
+            SecondStopCmbbox.Items.Clear();
+            FirstStopCmbbox.ResetText();
+            SecondStopCmbbox.ResetText();
             if (TransportTypeCmbbox.SelectedIndex >= 0)
             {
                 Dictionary<Guid, Stop> items = new Dictionary<Guid, Stop>();
@@ -101,8 +101,8 @@ namespace EasyTransport
                 {
                     foreach (var item in items)
                     {
-                        comboBox2.Items.Add(item.Value);
-                        comboBox3.Items.Add(item.Value);
+                        FirstStopCmbbox.Items.Add(item.Value);
+                        SecondStopCmbbox.Items.Add(item.Value);
                     }
                 }
             }

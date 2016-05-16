@@ -11,6 +11,7 @@ namespace EasyTransport.Data
     public class DataBase<T> where T:DataBase<T>
     {
         public static readonly Dictionary<Guid,T> Items = new Dictionary<Guid, T>();
+
         public Guid Id { get; set; }
 
         public DataBase()

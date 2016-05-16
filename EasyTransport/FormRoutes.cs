@@ -17,6 +17,7 @@ namespace EasyTransport
         {
             InitializeComponent();
             InitTransportTypes();
+            UpdateListRoutes();
         }
 
         private void InitTransportTypes()
@@ -26,8 +27,39 @@ namespace EasyTransport
             {
                 TransportTypeCmbbox.Items.Add(trType);
             }
+            TransportTypeCmbbox.SelectedIndex = 0;
         }
 
+        private void UpdateListRoutes()
+        {
+            RoutesLstbox.Items.Clear();
+            if (TransportTypeCmbbox.SelectedIndex >= 0)
+            {
+                Dictionary<Guid, Route> items = new Dictionary<Guid, Route>();
+                if (TransportTypeCmbbox.SelectedIndex == 0)
+                {
+                    items = Route.Items;
+                }
+                else
+                {
+                    var trType = (TransportType)(TransportTypeCmbbox.SelectedIndex - 1);
+                    foreach (var item in Route.Items)
+                    {
+                        if (item.Value.RouteTransportType == trType)
+                        {
+                            items.Add(item.Key, item.Value);
+                        }
+                    }
+                }
+                if (items != null)
+                {
+                    foreach (var item in items)
+                    {
+                        RoutesLstbox.Items.Add(item.Value);
+                    }
+                }
+            }
+        }
 
         private void AddNewRoute_Click(object sender, EventArgs e)
         {
@@ -38,18 +70,34 @@ namespace EasyTransport
             }
             else if (TransportTypeCmbbox.SelectedIndex >= 0)
             {
-                new Route();
+                new FormRouteEditor().ShowDialog();
             }
+            
         }
 
         private void ChangeRoute_Click(object sender, EventArgs e)
         {
-
+            var selectedRoute = RoutesLstbox.SelectedItem as Route;
+            if (selectedRoute != null)
+            {
+                new FormRouteEditor(selectedRoute).ShowDialog();
+            }
+            UpdateListRoutes();
         }
 
         private void RemoveRoute_Click(object sender, EventArgs e)
         {
+            var selectedRoute = RoutesLstbox.SelectedItem as Route;
+            if (selectedRoute != null)
+            {
+                Route.RemoveItem(selectedRoute.Id);
+            }
+            UpdateListRoutes();
+        }
 
+        private void TransportTypeCmbbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListRoutes();
         }
     }
 }

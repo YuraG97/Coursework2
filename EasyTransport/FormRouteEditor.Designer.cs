@@ -32,12 +32,13 @@
             this.RouteNameTxtbox = new System.Windows.Forms.TextBox();
             this.TypeTransportCmbbox = new System.Windows.Forms.ComboBox();
             this.TypeTransportLbl = new System.Windows.Forms.Label();
+            this.SaveOrCreateRoute = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RouteNameLbl
             // 
             this.RouteNameLbl.AutoSize = true;
-            this.RouteNameLbl.Location = new System.Drawing.Point(13, 13);
+            this.RouteNameLbl.Location = new System.Drawing.Point(14, 36);
             this.RouteNameLbl.Name = "RouteNameLbl";
             this.RouteNameLbl.Size = new System.Drawing.Size(39, 13);
             this.RouteNameLbl.TabIndex = 0;
@@ -45,7 +46,7 @@
             // 
             // RouteNameTxtbox
             // 
-            this.RouteNameTxtbox.Location = new System.Drawing.Point(105, 10);
+            this.RouteNameTxtbox.Location = new System.Drawing.Point(106, 33);
             this.RouteNameTxtbox.Name = "RouteNameTxtbox";
             this.RouteNameTxtbox.Size = new System.Drawing.Size(141, 20);
             this.RouteNameTxtbox.TabIndex = 1;
@@ -53,7 +54,7 @@
             // TypeTransportCmbbox
             // 
             this.TypeTransportCmbbox.FormattingEnabled = true;
-            this.TypeTransportCmbbox.Location = new System.Drawing.Point(105, 36);
+            this.TypeTransportCmbbox.Location = new System.Drawing.Point(106, 6);
             this.TypeTransportCmbbox.Name = "TypeTransportCmbbox";
             this.TypeTransportCmbbox.Size = new System.Drawing.Size(141, 21);
             this.TypeTransportCmbbox.TabIndex = 2;
@@ -61,17 +62,28 @@
             // TypeTransportLbl
             // 
             this.TypeTransportLbl.AutoSize = true;
-            this.TypeTransportLbl.Location = new System.Drawing.Point(13, 39);
+            this.TypeTransportLbl.Location = new System.Drawing.Point(14, 9);
             this.TypeTransportLbl.Name = "TypeTransportLbl";
             this.TypeTransportLbl.Size = new System.Drawing.Size(86, 13);
             this.TypeTransportLbl.TabIndex = 3;
             this.TypeTransportLbl.Text = "Тип транспорту";
             // 
+            // SaveOrCreateRoute
+            // 
+            this.SaveOrCreateRoute.Location = new System.Drawing.Point(624, 513);
+            this.SaveOrCreateRoute.Name = "SaveOrCreateRoute";
+            this.SaveOrCreateRoute.Size = new System.Drawing.Size(117, 33);
+            this.SaveOrCreateRoute.TabIndex = 4;
+            this.SaveOrCreateRoute.Text = "Створити";
+            this.SaveOrCreateRoute.UseVisualStyleBackColor = true;
+            this.SaveOrCreateRoute.Click += new System.EventHandler(this.SaveOrCreateRoute_Click);
+            // 
             // FormRouteEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 440);
+            this.ClientSize = new System.Drawing.Size(753, 558);
+            this.Controls.Add(this.SaveOrCreateRoute);
             this.Controls.Add(this.TypeTransportLbl);
             this.Controls.Add(this.TypeTransportCmbbox);
             this.Controls.Add(this.RouteNameTxtbox);
@@ -89,5 +101,6 @@
         private System.Windows.Forms.TextBox RouteNameTxtbox;
         private System.Windows.Forms.ComboBox TypeTransportCmbbox;
         private System.Windows.Forms.Label TypeTransportLbl;
+        private System.Windows.Forms.Button SaveOrCreateRoute;
     }
 }

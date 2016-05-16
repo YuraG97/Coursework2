@@ -67,6 +67,7 @@
             this.TransportTypeCmbbox.Name = "TransportTypeCmbbox";
             this.TransportTypeCmbbox.Size = new System.Drawing.Size(277, 29);
             this.TransportTypeCmbbox.TabIndex = 2;
+            this.TransportTypeCmbbox.SelectedIndexChanged += new System.EventHandler(this.TransportTypeCmbbox_SelectedIndexChanged);
             // 
             // AddNewRouteBtn
             // 

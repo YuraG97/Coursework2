@@ -13,6 +13,11 @@ namespace EasyTransport.Data
         public Guid RouteGuid { get; set; }
 
         public RoadOnRoute() { }
+        public RoadOnRoute(Road road, Route route)
+        {
+            Road = road;
+            Route = route;
+        }
 
         [XmlIgnore]
         public Road Road
@@ -20,6 +25,7 @@ namespace EasyTransport.Data
             get { return Road.Items[RoadGuid]; }
             set { RoadGuid = value.Id; }
         }
+
         [XmlIgnore]
         public Route Route
         {
@@ -27,12 +33,7 @@ namespace EasyTransport.Data
             set { RouteGuid = value.Id; }
         }
 
-        public RoadOnRoute(Road road, Route route)
-        {
-            Road = road;
-            Route = route;
-        }
-
+        #region Serialize And Deserialize
         public static void Deserialize()
         {
             string fileName = "RoadOnRoute.xml";
@@ -44,5 +45,6 @@ namespace EasyTransport.Data
             string fileName = "RoadOnRoute.xml";
             Serialize(fileName);
         }
+#endregion
     }
 }

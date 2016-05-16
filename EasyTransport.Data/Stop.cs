@@ -46,6 +46,31 @@ namespace EasyTransport.Data
             }
         }
 
+        [XmlIgnore]
+        public List<Stop> NearStops
+        {
+            get
+            {
+                var res = new List<Stop>();
+                foreach (var road in Road.Items.Values)
+                {
+                    if (road.RoadTransportType != TransportType.Walk)
+                    {
+                        if (road.Stop1 == this)
+                        {
+                            res.Add(road.Stop2);
+                        }
+                        else if (road.Stop2 == this && road.IsTwoDir)
+                        {
+                            res.Add(road.Stop1);
+                        }
+                    }
+                }
+                return res;
+            }
+        }
+
+        #region Serialize And Deserialize
         public static void Deserialize()
         {
             string fileName = "Stop.xml";
@@ -57,5 +82,6 @@ namespace EasyTransport.Data
             string fileName = "Stop.xml";
             Serialize(fileName);
         }
+#endregion
     }
 }

@@ -11,7 +11,6 @@ namespace EasyTransport.Data
     {
         public Guid Stop1Id { get; set; }
         public Guid Stop2Id { get; set; }
-
         public double Length { get; set; }
         public bool IsTwoDir { get; set; }
         public List<string> Comments { get; set; }
@@ -22,13 +21,11 @@ namespace EasyTransport.Data
         public double BadWeaterSpeed { get; set; }
 
         public Road() { }
-
         public Road(Stop stop1, Stop stop2)
         {
             Stop1 = stop1;
             Stop2 = stop2;
         }
-
         public Road(Stop stop1, Stop stop2, bool twoDir, double length, TransportType trType, QualityType quality)
         {
             Stop1 = stop1;
@@ -76,6 +73,7 @@ namespace EasyTransport.Data
             return res;
         }
 
+        #region Serialize And Deserialize
         public static void Deserialize()
         {
             string fileName = "Road.xml";
@@ -87,5 +85,7 @@ namespace EasyTransport.Data
             string fileName = "Road.xml";
             Serialize(fileName);
         }
+#endregion
+
     }
 }

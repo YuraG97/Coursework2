@@ -27,10 +27,10 @@ namespace EasyTransport
             InitTransportTypes();
             _nowStop = editStop;
             CreateNewStop.Text = "Зберегти";
-            comboBox1.SelectedIndex = (int) editStop.StopTransportType;
-            textBox1.Text = editStop.Name;
-            numericUpDown1.Value = (decimal) editStop.Coordinates.X;
-            numericUpDown2.Value = (decimal) editStop.Coordinates.Y;
+            TransportTypeCmbbox.SelectedIndex = (int) editStop.StopTransportType;
+            StopNameTxtbox.Text = editStop.Name;
+            StopCoordXNumupdown.Value = (decimal) editStop.Coordinates.X;
+            StopCoordYNumupdown.Value = (decimal) editStop.Coordinates.Y;
         }
 
         private void InitTransportTypes()
@@ -38,24 +38,24 @@ namespace EasyTransport
             string[] transpTypes = { "Bus", "Tramway", "Metro", "Trolleybus" };
             foreach (var trType in transpTypes)
             {
-                comboBox1.Items.Add(trType);
+                TransportTypeCmbbox.Items.Add(trType);
             }
         }
 
         private void CreateNewStop_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == -1)
+            if (TransportTypeCmbbox.SelectedIndex == -1)
             {
                 MessageBox.Show("Щоб створити маршрут виберіть його тип транспорту!", "Увага", MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
-            else if (comboBox1.SelectedIndex >= 0)
+            else if (TransportTypeCmbbox.SelectedIndex >= 0)
             {
-                _nowStop.StopTransportType = (TransportType) comboBox1.SelectedIndex;
+                _nowStop.StopTransportType = (TransportType) TransportTypeCmbbox.SelectedIndex;
                 var nowPoint = _nowStop.Coordinates;
-                nowPoint.X = (float) numericUpDown1.Value;
-                nowPoint.Y = (float) numericUpDown2.Value;
-                _nowStop.Name = textBox1.Text;
+                nowPoint.X = (float) StopCoordXNumupdown.Value;
+                nowPoint.Y = (float) StopCoordYNumupdown.Value;
+                _nowStop.Name = StopNameTxtbox.Text;
             }
         }
     }
