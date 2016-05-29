@@ -35,6 +35,7 @@ namespace EasyTransport
 
         private void InitSavedParametrs()
         {
+            SaveOrCreateRoute.Text = "Зберегти";
             TransportTypeCmbbox.SelectedIndex = (int) _selectedRoute.RouteTransportType;
             RouteNameTxtbox.Text = _selectedRoute.Name;
             TicketCostNumupdown.Value = (decimal) _selectedRoute.TicketCost;

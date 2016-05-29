@@ -72,7 +72,7 @@ namespace EasyTransport
             {
                 new FormRouteEditor().ShowDialog();
             }
-            
+            UpdateListRoutes();
         }
 
         private void ChangeRoute_Click(object sender, EventArgs e)

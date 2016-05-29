@@ -56,7 +56,31 @@ namespace EasyTransport.Data
 
         public override string ToString()
         {
-            string res = string.Format("{0}-{1} ({2}-{3}) - {4}", StopStart.Name, StopsDir.Last().Name, StopStartInvDir.Name, StopsInversionDir.Last().Name, Id.ToString("N"));
+            string startStName;
+            string endStName;
+            string startInvStName;
+            string endInvStName;
+            if (StopStartId == Guid.Empty)
+            {
+                startStName = "Null";
+                endStName = "Null";
+            }
+            else
+            {
+                startStName = StopStart.Name;
+                endStName = StopsDir.Last().Name;
+            }
+            if (StopStartInvDirId == Guid.Empty)
+            {
+                startInvStName = "Null";
+                endInvStName = "Null";
+            }
+            else
+            {
+                startInvStName = StopStartInvDir.Name;
+                endInvStName = StopsInversionDir.Last().Name;
+            }
+            string res = string.Format("{0}-{1} ({2}-{3}) - {4}", startStName, endStName, startInvStName, endInvStName, Id.ToString("N"));
             return res;
         }
 

@@ -20,7 +20,7 @@ namespace EasyTransport
 
         private void RoutesBtn_Click(object sender, EventArgs e)
         {
-            new FormRoutes().ShowDialog();
+            new FormRoutes().Show();
         }
 
         private void TripsBtn_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace EasyTransport
 
         private void TransportBtn_Click(object sender, EventArgs e)
         {
-
+            new FormTransports().Show();
         }
 
         private void AboutProgramMenuItem_Click(object sender, EventArgs e)
@@ -71,12 +71,12 @@ namespace EasyTransport
 
         private void RoadsBtn_Click(object sender, EventArgs e)
         {
-            new FormRoads().ShowDialog();
+            new FormRoads().Show();
         }
 
         private void StopsBtn_Click(object sender, EventArgs e)
         {
-            new FormStops().ShowDialog();
+            new FormStops().Show();
         }
     }
 }

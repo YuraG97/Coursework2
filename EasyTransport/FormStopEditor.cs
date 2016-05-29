@@ -14,6 +14,7 @@ namespace EasyTransport
     public partial class FormStopEditor : Form
     {
         private readonly Stop _nowStop;
+
         public FormStopEditor()
         {
             InitializeComponent();

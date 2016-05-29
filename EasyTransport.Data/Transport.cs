@@ -9,10 +9,30 @@ namespace EasyTransport.Data
     [Serializable]
     public class Transport : DataBase<Transport>
     {
-        public string Name { get; set; }
+        public string SerieName { get; set; }
+        public string SerialNumber { get; set; }
         public string Mark { get; set; }
+        public TransportType TransportType { get; set; }
         public double AllDistance { get; set; }
-        public Transport() { }
+
+        public Transport()
+        {
+            
+        }
+        public Transport(string serieName, string serialNumber, string mark, TransportType transportType)
+        {
+            SerieName = serieName;
+            SerialNumber = serialNumber;
+            Mark = mark;
+            TransportType = transportType;
+        }
+
+        public override string ToString()
+        {
+            string res = string.Format("{0}-{1}-{2}-{3}-{4}", TransportType, Mark, SerieName, SerialNumber,
+                Id.ToString("N"));
+            return res;
+        }
 
         [XmlIgnore]
         public List<Trip> Trips
