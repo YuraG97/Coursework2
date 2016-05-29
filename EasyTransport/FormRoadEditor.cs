@@ -26,13 +26,18 @@ namespace EasyTransport
             InitializeComponent();
             InitCmbbox();
             _nowRoad = editRoad;
+            InitSavedParametrs();
+        }
+
+        private void InitSavedParametrs()
+        {
             SaveOrCreateRoadBtn.Text = "Зберегти";
-            TransportTypeCmbbox.SelectedIndex = (int) editRoad.RoadTransportType;
-            RoadLengthNumupdown.Value = (decimal) editRoad.Length;
-            FirstStopCmbbox.SelectedItem = editRoad.Stop1;
-            SecondStopCmbbox.SelectedItem = editRoad.Stop2;
-            IsRoadTwoDirChckbox.Checked = editRoad.IsTwoDir;
-            QualityCmbbox.SelectedIndex = (int) editRoad.Quality;
+            TransportTypeCmbbox.SelectedIndex = (int) _nowRoad.RoadTransportType;
+            RoadLengthNumupdown.Value = (decimal) _nowRoad.Length;
+            FirstStopCmbbox.SelectedItem = _nowRoad.Stop1;
+            SecondStopCmbbox.SelectedItem = _nowRoad.Stop2;
+            IsRoadTwoDirChckbox.Checked = _nowRoad.IsTwoDir;
+            QualityCmbbox.SelectedIndex = (int) _nowRoad.Quality;
         }
 
         private void InitCmbbox()

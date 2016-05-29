@@ -9,6 +9,9 @@ namespace EasyTransport.Data
     [Serializable]
     public class Transport : DataBase<Transport>
     {
+        public string Name { get; set; }
+        public string Mark { get; set; }
+        public double AllDistance { get; set; }
         public Transport() { }
 
         [XmlIgnore]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -10,6 +11,7 @@ namespace EasyTransport.Data
     {
         public Guid TransportGuid { get; set; }
         public Guid RouteGuid { get; set; }
+        public List<List<DateTime>> Schedule { get; set; }
 
         public Trip() { }
 

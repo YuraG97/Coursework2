@@ -29,6 +29,19 @@ namespace EasyTransport.Data
             return $"{Name} - id#{Id.ToString("N")}";
         }
 
+        public static List<Stop> SelectByTransportType(TransportType trType)
+        {
+            Dictionary<Guid, Stop> items = new Dictionary<Guid, Stop>();
+            foreach (var item in Stop.Items)
+            {
+                if (item.Value.StopTransportType == trType)
+                {
+                    items.Add(item.Key, item.Value);
+                }
+            }
+            return items.Select(kv => kv.Value).ToList();
+        }
+
         [XmlIgnore]
         public List<Road> Roads
         {
@@ -40,6 +53,30 @@ namespace EasyTransport.Data
                     if (road.Stop1 == this || road.Stop2 == this)
                     {
                         res.Add(road);
+                    }
+                }
+                return res;
+            }
+        }
+
+        [XmlIgnore]
+        public List<Tuple<Road,Stop>> NearRoadsAndStops
+        {
+            get
+            {
+                var res = new List<Tuple<Road, Stop>>();
+                foreach (var road in Road.Items.Values)
+                {
+                    if (road.RoadTransportType != TransportType.Walk)
+                    {
+                        if (road.Stop1 == this)
+                        {
+                            res.Add(new Tuple<Road, Stop>(road, road.Stop2));
+                        }
+                        else if (road.Stop2 == this && road.IsTwoDir)
+                        {
+                            res.Add(new Tuple<Road, Stop>(road, road.Stop1));
+                        }
                     }
                 }
                 return res;

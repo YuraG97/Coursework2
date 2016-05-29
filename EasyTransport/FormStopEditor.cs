@@ -26,11 +26,16 @@ namespace EasyTransport
             InitializeComponent();
             InitTransportTypes();
             _nowStop = editStop;
+            InitSavedParametrs();
+        }
+
+        private void InitSavedParametrs()
+        {
             CreateNewStop.Text = "Зберегти";
-            TransportTypeCmbbox.SelectedIndex = (int) editStop.StopTransportType;
-            StopNameTxtbox.Text = editStop.Name;
-            StopCoordXNumupdown.Value = (decimal) editStop.Coordinates.X;
-            StopCoordYNumupdown.Value = (decimal) editStop.Coordinates.Y;
+            TransportTypeCmbbox.SelectedIndex = (int) _nowStop.StopTransportType;
+            StopNameTxtbox.Text = _nowStop.Name;
+            StopCoordXNumupdown.Value = (decimal) _nowStop.Coordinates.X;
+            StopCoordYNumupdown.Value = (decimal) _nowStop.Coordinates.Y;
         }
 
         private void InitTransportTypes()

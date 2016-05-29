@@ -36,6 +36,18 @@ namespace EasyTransport.Data
             Quality = quality;
         }
 
+        public static Road GetRoadByStops(Stop stop1, Stop stop2)
+        {
+            foreach (var item in Items.Values)
+            {
+                if ((item.Stop1 == stop1 && item.Stop2 == stop2)||(item.Stop2 == stop1 && item.Stop1 == stop2))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
         [XmlIgnore]
         public Stop Stop1
         {

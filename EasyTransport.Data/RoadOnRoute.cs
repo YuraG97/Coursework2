@@ -11,12 +11,26 @@ namespace EasyTransport.Data
     {
         public Guid RoadGuid { get; set; }
         public Guid RouteGuid { get; set; }
+        public bool Dir { get; set; }
 
         public RoadOnRoute() { }
-        public RoadOnRoute(Road road, Route route)
+        public RoadOnRoute(Road road, Route route, bool dir)
         {
             Road = road;
             Route = route;
+            Dir = dir;
+        }
+
+        public static bool IsRoadOnRoute(Road road, Route route)
+        {
+            foreach (var roadOnRoute in Items)
+            {
+                if (roadOnRoute.Value.Road == road && roadOnRoute.Value.Route == route)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         [XmlIgnore]

@@ -38,53 +38,20 @@ namespace EasyTransport
             new FormAbout().Show();
         }
 
-        #region TestSerialize
-        //private void TestSerialize()
-        //{
-        //    var stop1 = new Stop() { Name = "Lolke", StopTransportType = TransportType.Bus };
-        //    var stop2 = new Stop() { Name = "lalka", StopTransportType = TransportType.Bus };
-        //    var stop3 = new Stop() { Name = "dniwe", StopTransportType = TransportType.Bus };
-        //    var road1 = new Road(stop1, stop2)
-        //    {
-        //        AverageSpeed = 4,
-        //        BadWeaterSpeed = 5,
-        //        Description = "bbbb",
-        //        Length = 15,
-        //        Quality = QualityType.Good
-        //    };
-        //    var road2 = new Road(stop2, stop3)
-        //    {
-        //        AverageSpeed = 10,
-        //        BadWeaterSpeed = 10,
-        //        Description = "aaaa",
-        //        Length = 40,
-        //        Quality = QualityType.Middle
-        //    };
-        //    var road3 = new Road(stop1, stop3)
-        //    {
-        //        AverageSpeed = 2,
-        //        BadWeaterSpeed = 2,
-        //        Description = "vvvvv",
-        //        Length = 50,
-        //        Quality = QualityType.Bad
-        //    };
-        //    var route1 = new Route();
-        //    var route2 = new Route();
-        //    var roadOnRoute1 = new RoadOnRoute(road1, route1);
-        //    var roadOnRoute2 = new RoadOnRoute(road2, route1);
-        //    var roadOnRoute3 = new RoadOnRoute(road3, route2);
-        //    var transport1 = new Transport();
-        //    var transport2 = new Transport();
-        //    var trip1 = new Trip() { Transport = transport1, Route = route1 };
-        //    var trip2 = new Trip() { Transport = transport2, Route = route2 };
-        //}
-#endregion
-
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            #region Clear all items
+            //Road.Items.Clear();
+            //RoadOnRoute.Items.Clear();
+            //Route.Items.Clear();
+            //Stop.Items.Clear();
+            //Transport.Items.Clear();
+            //Trip.Items.Clear();
+#endregion
+
             Road.Serialize();
-            RoadOnRoute.Serialize();
             Route.Serialize();
+            RoadOnRoute.Serialize();
             Stop.Serialize();
             Transport.Serialize();
             Trip.Serialize();
