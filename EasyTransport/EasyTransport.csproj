@@ -150,6 +150,12 @@
     <EmbeddedResource Include="FormTransportEditor.resx">
       <DependentUpon>FormTransportEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTripEditor.resx">
+      <DependentUpon>FormTripEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTrips.resx">
+      <DependentUpon>FormTrips.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

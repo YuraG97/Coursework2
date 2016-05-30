@@ -25,7 +25,7 @@ namespace EasyTransport
 
         private void TripsBtn_Click(object sender, EventArgs e)
         {
-
+            new FormTrips().Show();
         }
 
         private void TransportBtn_Click(object sender, EventArgs e)

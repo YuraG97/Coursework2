@@ -173,6 +173,18 @@ namespace EasyTransport.Data
         }
 
         [XmlIgnore]
+        public List<Stop> Stops
+        {
+            get
+            {
+                var result = new List<Stop>();
+                result.AddRange(StopsDir);
+                result.AddRange(StopsInversionDir);
+                return result;
+            }
+        }
+
+        [XmlIgnore]
         public List<Road> Roads
         {
             get
