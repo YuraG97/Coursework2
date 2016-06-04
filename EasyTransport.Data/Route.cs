@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace EasyTransport.Data
 {
     [Serializable]
-    public class Route : DataBase<Route>
+    public class Route : DataBase<Route>, IGraphNode<Route>
     {
         public Guid StopStartId { get; set; }
         public Guid StopStartInvDirId { get; set; }
@@ -52,6 +52,52 @@ namespace EasyTransport.Data
                     AddRoadOnRoute(road, false);
                 }
             }
+        }
+        public List<List<Stop>> GetPathFromStopToStop(Stop stop1, Stop stop2)
+        {
+            var startRoad = stop1.Roads.Where(rd => RoadOnRoute.IsRoadOnRoute(rd, this));
+            var tempResult = new List<List<IGraphNode<Stop>>>();
+            Func<IGraphNode<Stop>, bool> thisRouteSelector = (node) => (node as Stop).RoutesThroughStop.Contains(this);
+            PathFinder.RecoursionFindPath(stop1, stop2, new List<IGraphNode<Stop>>(), tempResult, thisRouteSelector);
+            var result = tempResult.Select(temp => temp.Select(node => node as Stop).ToList()).ToList();
+            return result;
+        }
+        public static List<Tuple<Stop, Stop>> GetTransit(Route route1, Route route2)
+        {
+            var result = new List<Tuple<Stop, Stop>>();
+            var stops = route1.Stops;
+            foreach (var stop in stops)
+            {
+                if (stop.RoutesThroughStop.Contains(route2))
+                {
+                    result.Add(new Tuple<Stop, Stop>(stop, stop));
+                }
+                else
+                {
+                    var nearTransitRoads = stop.Roads.Where((rd) => rd.RoadTransportType == TransportType.Walk).ToList();
+                    foreach (var road in nearTransitRoads)
+                    {
+                        if (road.Stop1 == stop && route2.Stops.Contains(road.Stop2))
+                        {
+                            result.Add(new Tuple<Stop, Stop>(road.Stop1, road.Stop2));
+                        }
+                        else if (road.Stop2 == stop && route2.Stops.Contains(road.Stop1))
+                        {
+                            result.Add(new Tuple<Stop, Stop>(road.Stop2, road.Stop1));
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+        public List<IGraphNode<Route>> GetNearNodes(Func<IGraphNode<Route>, bool> selector)
+        {
+            return new List<IGraphNode<Route>>(NearRoutes);
+        }
+        public override bool Equals(object obj)
+        {
+            var comp = obj as Route;
+            return comp != null && Id == comp.Id;
         }
 
         public override string ToString()
@@ -99,13 +145,49 @@ namespace EasyTransport.Data
         }
 
         [XmlIgnore]
+        public List<Route> NearRoutes
+        {
+            get
+            {
+                var result = new List<Route>();
+                foreach (var stop in Stops)
+                {
+                    var nearRoads = stop.Roads;
+                    var nearTransit = nearRoads.Where(transit => transit.RoadTransportType == TransportType.Walk).ToList();
+                    var possibleRoutes = new List<Route>();
+                    foreach (var road in nearTransit)
+                    {
+                        if (!Stops.Contains(road.Stop1))
+                        {
+                            possibleRoutes = road.Stop1.RoutesThroughStop;
+                        }
+                        else if (!Stops.Contains(road.Stop2))
+                        {
+                            possibleRoutes = road.Stop2.RoutesThroughStop;
+                        }
+                    }
+                    possibleRoutes.AddRange(stop.RoutesThroughStop);
+                    foreach (var route in possibleRoutes)
+                    {
+                        if (!result.Contains(route) && route != this)
+                        {
+                            result.Add(route);
+                        }
+                    }
+                }
+
+                return result;
+            }
+        }
+
+        [XmlIgnore]
         public List<Stop> StopsDir
         {
             get
             {
                 var allRoads = RoadsDir;
                 var nowStop = StopStart;
-                var stops = new List<Stop> {nowStop};
+                var stops = new List<Stop> { nowStop };
                 for (int i = 0; i < allRoads.Count; i++)
                 {
                     var nearRoads = nowStop.Roads;
@@ -200,7 +282,7 @@ namespace EasyTransport.Data
                 return res;
             }
         }
-        
+
         [XmlIgnore]
         public List<Road> RoadsDir
         {
@@ -281,7 +363,7 @@ namespace EasyTransport.Data
             string fileName = "Route.xml";
             Serialize(fileName);
         }
-#endregion
+        #endregion
 
     }
 }

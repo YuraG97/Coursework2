@@ -32,6 +32,18 @@ namespace EasyTransport.Data
             }
             return false;
         }
+        public static List<Route> GetRoutesThroughRoad(Road road)
+        {
+            var result = new List<Route>();
+            foreach (var item in Items.Values)
+            {
+                if (item.Road == road && !result.Contains(item.Route))
+                {
+                    result.Add(item.Route);
+                }
+            }
+            return result;
+        }
 
         [XmlIgnore]
         public Road Road

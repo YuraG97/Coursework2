@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTransport", "EasyTransp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTransport.Data", "EasyTransport.Data\EasyTransport.Data.csproj", "{BC17C4F9-8EB5-4FF6-8079-121AA59E1BA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTransport.PathFinder", "EasyTransport.PathFinder\EasyTransport.PathFinder.csproj", "{D9EC104F-A8A9-414F-A90F-0188A75AB57B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BC17C4F9-8EB5-4FF6-8079-121AA59E1BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC17C4F9-8EB5-4FF6-8079-121AA59E1BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC17C4F9-8EB5-4FF6-8079-121AA59E1BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EC104F-A8A9-414F-A90F-0188A75AB57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EC104F-A8A9-414F-A90F-0188A75AB57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EC104F-A8A9-414F-A90F-0188A75AB57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EC104F-A8A9-414F-A90F-0188A75AB57B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

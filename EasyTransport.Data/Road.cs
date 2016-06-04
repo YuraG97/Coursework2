@@ -13,12 +13,9 @@ namespace EasyTransport.Data
         public Guid Stop2Id { get; set; }
         public double Length { get; set; }
         public bool IsTwoDir { get; set; }
-        public List<string> Comments { get; set; }
         public string Description { get; set; }
         public QualityType Quality { get; set; }
         public TransportType RoadTransportType { get; set; }
-        public double AverageSpeed { get; set; }
-        public double BadWeaterSpeed { get; set; }
 
         public Road() { }
         public Road(Stop stop1, Stop stop2)
@@ -97,7 +94,6 @@ namespace EasyTransport.Data
             string fileName = "Road.xml";
             Serialize(fileName);
         }
-#endregion
-
+        #endregion
     }
 }

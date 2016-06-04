@@ -74,7 +74,7 @@ namespace EasyTransport
                 {
                     DirectStopsLstbox.Items.Add(stop);
                 }
-                var nextStops = stopsList.Last().NearStops;
+                var nextStops = stopsList.Last().PossibleStopsToBuildRoute;
                 foreach (var stop in nextStops)
                 {
                     NextStopCmbbox.Items.Add(stop);
@@ -96,7 +96,7 @@ namespace EasyTransport
                 {
                     InverseDirectStopsLstbox.Items.Add(stop);
                 }
-                var nextStopsInv = inversStopsList.Last().NearStops;
+                var nextStopsInv = inversStopsList.Last().PossibleStopsToBuildRoute;
                 foreach (var stop in nextStopsInv)
                 {
                     NextStopInvDirectCmbbox.Items.Add(stop);
