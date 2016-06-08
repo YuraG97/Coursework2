@@ -25,9 +25,9 @@ namespace EasyTransport.Data
             return "Object #" + Id;
         }
 
-        public static void RemoveItem(Guid itemId)
+        public virtual void RemoveItem()
         {
-            Items.Remove(itemId);
+            Items.Remove(this.Id);
         }
 
         protected static void Deserialize(string fileName)

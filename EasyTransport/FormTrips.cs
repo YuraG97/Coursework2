@@ -95,7 +95,7 @@ namespace EasyTransport
             var selectedItem = TripsLstbox.SelectedItem as Trip;
             if (selectedItem != null)
             {
-                Trip.RemoveItem(selectedItem.Id);
+                selectedItem.RemoveItem();
             }
             UpdateListTrips();
         }

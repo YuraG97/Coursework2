@@ -100,7 +100,55 @@ namespace EasyTransport.Data
             var comp = obj as Route;
             return comp != null && Id == comp.Id;
         }
+        public override void RemoveItem()
+        {
+            var forRemoved = new List<RoadOnRoute>();
+            foreach (var item in RoadOnRoute.Items)
+            {
+                if (item.Value.Route == this)
+                {
+                    forRemoved.Add(item.Value);
+                }
+            }
+            foreach (var removed in forRemoved)
+            {
+                removed.RemoveItem();
+            }
+            base.RemoveItem();
+        }
 
+        public string GetDir()
+        {
+            string startStName;
+            string endStName;
+            if (StopStartId == Guid.Empty)
+            {
+                startStName = "Null";
+                endStName = "Null";
+            }
+            else
+            {
+                startStName = StopStart.Name;
+                endStName = StopsDir.Last().Name;
+            }
+            return string.Format("{0}-{1}", startStName, endStName);
+        }
+        public string GetInvDir()
+        {
+            string startInvStName;
+            string endInvStName;
+            if (StopStartInvDirId == Guid.Empty)
+            {
+                startInvStName = "Null";
+                endInvStName = "Null";
+            }
+            else
+            {
+                startInvStName = StopStartInvDir.Name;
+                endInvStName = StopsInversionDir.Last().Name;
+            }
+            return string.Format("{0}-{1}", startInvStName, endInvStName);
+        }
         public override string ToString()
         {
             string startStName;

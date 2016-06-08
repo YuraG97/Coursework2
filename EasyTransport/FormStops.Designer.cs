@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStops));
             this.RemoveStopBtn = new System.Windows.Forms.Button();
+            this.IconsList = new System.Windows.Forms.ImageList(this.components);
             this.AddNewStopBtn = new System.Windows.Forms.Button();
             this.FilterTransportTypeCmbbox = new System.Windows.Forms.ComboBox();
             this.TransportTypeLbl = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.Description = new System.Windows.Forms.Label();
             this.DescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.IconsList = new System.Windows.Forms.ImageList(this.components);
             this.ListOfStopsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StopCoordYNumupdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StopCoordXNumupdown)).BeginInit();
@@ -73,6 +73,15 @@
             this.RemoveStopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RemoveStopBtn.UseVisualStyleBackColor = true;
             this.RemoveStopBtn.Click += new System.EventHandler(this.RemoveStopBtn_Click);
+            // 
+            // IconsList
+            // 
+            this.IconsList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconsList.ImageStream")));
+            this.IconsList.TransparentColor = System.Drawing.Color.Transparent;
+            this.IconsList.Images.SetKeyName(0, "copy.png");
+            this.IconsList.Images.SetKeyName(1, "deleteIcon.png");
+            this.IconsList.Images.SetKeyName(2, "map_pin_add_1-512.png");
+            this.IconsList.Images.SetKeyName(3, "saveIcon.png");
             // 
             // AddNewStopBtn
             // 
@@ -148,7 +157,7 @@
             this.ListOfStopsGroupBox.Controls.Add(this.CreateCopyStopBtn);
             this.ListOfStopsGroupBox.Controls.Add(this.TransportTypeLbl);
             this.ListOfStopsGroupBox.Controls.Add(this.FilterTransportTypeCmbbox);
-            this.ListOfStopsGroupBox.Location = new System.Drawing.Point(12, 57);
+            this.ListOfStopsGroupBox.Location = new System.Drawing.Point(12, 49);
             this.ListOfStopsGroupBox.Name = "ListOfStopsGroupBox";
             this.ListOfStopsGroupBox.Size = new System.Drawing.Size(342, 487);
             this.ListOfStopsGroupBox.TabIndex = 13;
@@ -284,7 +293,7 @@
             // 
             this.DescriptionTextBox.Location = new System.Drawing.Point(148, 224);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(228, 96);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(228, 128);
             this.DescriptionTextBox.TabIndex = 30;
             this.DescriptionTextBox.Text = "";
             // 
@@ -303,26 +312,17 @@
             this.groupBox1.Controls.Add(this.StopCoordXNumupdown);
             this.groupBox1.Controls.Add(this.StopCoordYNumupdown);
             this.groupBox1.Controls.Add(this.StopNameTxtbox);
-            this.groupBox1.Location = new System.Drawing.Point(360, 57);
+            this.groupBox1.Location = new System.Drawing.Point(360, 49);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(382, 487);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Редагування зупинки";
             // 
-            // IconsList
-            // 
-            this.IconsList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconsList.ImageStream")));
-            this.IconsList.TransparentColor = System.Drawing.Color.Transparent;
-            this.IconsList.Images.SetKeyName(0, "copy.png");
-            this.IconsList.Images.SetKeyName(1, "deleteIcon.png");
-            this.IconsList.Images.SetKeyName(2, "map_pin_add_1-512.png");
-            this.IconsList.Images.SetKeyName(3, "saveIcon.png");
-            // 
             // FormStops
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(757, 556);
+            this.ClientSize = new System.Drawing.Size(757, 542);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.StopsLabel);
             this.Controls.Add(this.ListOfStopsGroupBox);

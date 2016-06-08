@@ -64,12 +64,6 @@
     <Compile Include="FormRoads.Designer.cs">
       <DependentUpon>FormRoads.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRouteEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRouteEditor.Designer.cs">
-      <DependentUpon>FormRouteEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormRoutes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,9 +110,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRoads.resx">
       <DependentUpon>FormRoads.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRouteEditor.resx">
-      <DependentUpon>FormRouteEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRoutes.resx">
       <DependentUpon>FormRoutes.cs</DependentUpon>

@@ -96,7 +96,7 @@ namespace EasyTransport
                 var selectedStop = StopsLstbox.SelectedItem as Stop;
                 if (selectedStop != null)
                 {
-                    Stop.RemoveItem(selectedStop.Id);
+                    selectedStop.RemoveItem();
                 }
                 UpdateListStops();
             }

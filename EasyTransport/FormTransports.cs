@@ -93,7 +93,7 @@ namespace EasyTransport
             var selectedTransport = TransportsLstbox.SelectedItem as Transport;
             if (selectedTransport != null)
             {
-                Transport.RemoveItem(selectedTransport.Id);
+                selectedTransport.RemoveItem();
             }
             UpdateListTransports();
         }

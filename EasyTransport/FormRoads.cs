@@ -105,7 +105,7 @@ namespace EasyTransport
             var selectedRoad = _nowRoads[RoadsList.SelectedRows[0].Index];
             if (selectedRoad != null)
             {
-                Road.RemoveItem(selectedRoad.Id);
+                selectedRoad.RemoveItem();
             }
             UpdateListRoads();
         }
