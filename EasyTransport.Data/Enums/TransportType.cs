@@ -1,4 +1,4 @@
-﻿namespace EasyTransport.Data
+﻿namespace EasyTransport.Data.Enums
 {
     public enum TransportType
     {

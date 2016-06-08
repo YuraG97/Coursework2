@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using EasyTransport.Data.Enums;
 
 namespace EasyTransport.Data
 {
@@ -29,7 +30,8 @@ namespace EasyTransport.Data
         }
         public override string ToString()
         {
-            return $"{Name} - {Id.ToString("N")}";
+            var id = Id.ToByteArray();
+            return $"{Name} - #{id[0]}";
         }
         public static List<Stop> SelectByTransportType(TransportType trType)
         {

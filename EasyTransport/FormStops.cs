@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EasyTransport.Data;
+using EasyTransport.Data.Enums;
 
 namespace EasyTransport
 {
     public partial class FormStops : Form
     {
+        private Stop _nowStop;
+
         public FormStops()
         {
             InitializeComponent();
@@ -25,24 +28,28 @@ namespace EasyTransport
             string[] transpTypes = { "All", "Bus", "Tramway", "Metro", "Trolleybus" };
             foreach (var trType in transpTypes)
             {
-                TransportTypeCmbbox.Items.Add(trType);
+                FilterTransportTypeCmbbox.Items.Add(trType);
+                if (trType != "All")
+                {
+                    TransportTypeCmbbox.Items.Add(trType);
+                }
             }
-            TransportTypeCmbbox.SelectedIndex = 0;
+            FilterTransportTypeCmbbox.SelectedIndex = 0;
         }
 
         private void UpdateListStops()
         {
             StopsLstbox.Items.Clear();
-            if (TransportTypeCmbbox.SelectedIndex >= 0)
+            if (FilterTransportTypeCmbbox.SelectedIndex >= 0)
             {
                 Dictionary<Guid, Stop> items = new Dictionary<Guid, Stop>();
-                if (TransportTypeCmbbox.SelectedIndex == 0)
+                if (FilterTransportTypeCmbbox.SelectedIndex == 0)
                 {
                     items = Stop.Items;
                 }
                 else
                 {
-                    var trType = (TransportType)(TransportTypeCmbbox.SelectedIndex - 1);
+                    var trType = (TransportType)(FilterTransportTypeCmbbox.SelectedIndex - 1);
                     foreach (var item in Stop.Items)
                     {
                         if (item.Value.StopTransportType == trType)
@@ -59,21 +66,14 @@ namespace EasyTransport
                     }
                 }
             }
+            StopsLstbox.SelectedIndex = StopsLstbox.Items.Count - 1;
         }
 
         private void AddNewStopBtn_Click(object sender, EventArgs e)
         {
-            new FormStopEditor().ShowDialog();
+            _nowStop = new Stop();
             UpdateListStops();
-        }
-
-        private void ChangeStopBtn_Click(object sender, EventArgs e)
-        {
-            if (StopsLstbox.SelectedItem != null)
-            {
-                new FormStopEditor(StopsLstbox.SelectedItem as Stop).ShowDialog();
-            }
-            UpdateListStops();
+            StopsLstbox.SelectedItem = _nowStop;
         }
 
         private void CreateCopyStopBtn_Click(object sender, EventArgs e)
@@ -82,24 +82,69 @@ namespace EasyTransport
             if (selectedStop != null)
             {
                 new Stop(selectedStop.StopTransportType, (decimal) selectedStop.Coordinates.X, (decimal) selectedStop.Coordinates.Y,
-                    selectedStop.Name);
+                    selectedStop.Name + " копія");
             }
             UpdateListStops();
         }
 
         private void RemoveStopBtn_Click(object sender, EventArgs e)
         {
-            var selectedStop = StopsLstbox.SelectedItem as Stop;
-            if (selectedStop != null)
+            if (
+                MessageBox.Show("Ви впевнені, що хочете видалити зупинку?", "Увага!", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                Stop.RemoveItem(selectedStop.Id);
+                var selectedStop = StopsLstbox.SelectedItem as Stop;
+                if (selectedStop != null)
+                {
+                    Stop.RemoveItem(selectedStop.Id);
+                }
+                UpdateListStops();
             }
-            UpdateListStops();
         }
 
         private void TransportTypeCmbbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateListStops();
         }
+
+        private void InitEditorParams()
+        {
+            if (StopsLstbox.SelectedItem != null)
+            {
+                _nowStop = StopsLstbox.SelectedItem as Stop;
+                TransportTypeCmbbox.SelectedIndex = (int)_nowStop.StopTransportType;
+                StopNameTxtbox.Text = _nowStop.Name;
+                StopCoordXNumupdown.Value = (decimal)_nowStop.Coordinates.X;
+                StopCoordYNumupdown.Value = (decimal)_nowStop.Coordinates.Y;
+                DescriptionTextBox.Text = _nowStop.Description;
+            }
+            else
+            {
+                TransportTypeCmbbox.SelectedIndex = -1;
+                StopNameTxtbox.Text = "";
+                StopCoordXNumupdown.Value = 0;
+                StopCoordYNumupdown.Value = 0;
+                DescriptionTextBox.Text = "";
+            }
+        }
+
+        private void SaveStopButton_Click(object sender, EventArgs e)
+        {
+            _nowStop.StopTransportType = (TransportType) TransportTypeCmbbox.SelectedIndex;
+            _nowStop.Name = StopNameTxtbox.Text;
+            var nowPoint = _nowStop.Coordinates;
+            nowPoint.X = (float) StopCoordXNumupdown.Value;
+            nowPoint.Y = (float) StopCoordYNumupdown.Value;
+            _nowStop.Description = DescriptionTextBox.Text;
+            MessageBox.Show("Зміни успішно збережено!", "", MessageBoxButtons.OK, MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
+            UpdateListStops();
+        }
+
+        private void StopsLstbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitEditorParams();
+        }
+
     }
 }

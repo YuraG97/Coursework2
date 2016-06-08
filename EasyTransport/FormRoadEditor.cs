@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EasyTransport.Data;
+using EasyTransport.Data.Enums;
 
 namespace EasyTransport
 {

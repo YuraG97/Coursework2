@@ -6,6 +6,8 @@ using System.Xml.Serialization;
 
 namespace EasyTransport.Data
 {
+    //TODO : add counting points time based on route
+
     [Serializable]
     public class Trip : DataBase<Trip>
     {
@@ -29,7 +31,6 @@ namespace EasyTransport.Data
                 }
             }
         }
-
         public void SetTimePoint(DateTime dateTime, int row, int column)
         {
             var items = Schedule[row];

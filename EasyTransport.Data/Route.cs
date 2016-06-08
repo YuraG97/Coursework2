@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
+using EasyTransport.Data.Enums;
 
 namespace EasyTransport.Data
 {
