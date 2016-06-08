@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRoutes));
             this.RoutesLstbox = new System.Windows.Forms.ListBox();
             this.TransportTypeLbl = new System.Windows.Forms.Label();
             this.TransportTypeCmbbox = new System.Windows.Forms.ComboBox();
@@ -111,6 +112,7 @@
             this.Controls.Add(this.TransportTypeLbl);
             this.Controls.Add(this.RoutesLstbox);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormRoutes";
             this.Text = "Маршрути";
