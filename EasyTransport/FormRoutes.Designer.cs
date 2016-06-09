@@ -79,6 +79,7 @@
             // 
             // FilterTransportTypeCmbbox
             // 
+            this.FilterTransportTypeCmbbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FilterTransportTypeCmbbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FilterTransportTypeCmbbox.FormattingEnabled = true;
             this.FilterTransportTypeCmbbox.Location = new System.Drawing.Point(212, 19);
@@ -371,12 +372,14 @@
             // 
             // TransportTypeCmbbox
             // 
+            this.TransportTypeCmbbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TransportTypeCmbbox.FormattingEnabled = true;
             this.TransportTypeCmbbox.Location = new System.Drawing.Point(147, 22);
             this.TransportTypeCmbbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TransportTypeCmbbox.Name = "TransportTypeCmbbox";
             this.TransportTypeCmbbox.Size = new System.Drawing.Size(187, 28);
             this.TransportTypeCmbbox.TabIndex = 19;
+            this.TransportTypeCmbbox.SelectedIndexChanged += new System.EventHandler(this.TransportTypeCmbbox_SelectedIndexChanged_1);
             // 
             // RouteNameTxtbox
             // 

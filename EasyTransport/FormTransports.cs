@@ -14,6 +14,8 @@ namespace EasyTransport
 {
     public partial class FormTransports : Form
     {
+        private Transport _nowTransport;
+
         public FormTransports()
         {
             InitializeComponent();
@@ -24,16 +26,16 @@ namespace EasyTransport
         private void UpdateListTransports()
         {
             TransportsLstbox.Items.Clear();
-            if (TransportTypeCmbbox.SelectedIndex >= 0)
+            if (FilterTransportTypeCmbbox.SelectedIndex >= 0)
             {
                 Dictionary<Guid, Transport> items = new Dictionary<Guid, Transport>();
-                if (TransportTypeCmbbox.SelectedIndex == 0)
+                if (FilterTransportTypeCmbbox.SelectedIndex == 0)
                 {
                     items = Transport.Items;
                 }
                 else
                 {
-                    var trType = (TransportType)(TransportTypeCmbbox.SelectedIndex - 1);
+                    var trType = (TransportType)(FilterTransportTypeCmbbox.SelectedIndex - 1);
                     foreach (var item in Transport.Items)
                     {
                         if (item.Value.TransportType == trType)
@@ -57,24 +59,22 @@ namespace EasyTransport
             string[] transpTypes = { "All", "Bus", "Tramway", "Metro", "Trolleybus" };
             foreach (var trType in transpTypes)
             {
-                TransportTypeCmbbox.Items.Add(trType);
+                FilterTransportTypeCmbbox.Items.Add(trType);
+                if (trType != "All")
+                {
+                    TransportTypeCmbbox.Items.Add(trType);
+                }
             }
-            TransportTypeCmbbox.SelectedIndex = 0;
+            FilterTransportTypeCmbbox.SelectedIndex = 0;
         }
 
         private void AddNewTransportBtn_Click(object sender, EventArgs e)
         {
-            new FormTransportEditor().ShowDialog();
+            _nowTransport = new Transport();
+            TransportsLstbox.SelectedIndex = TransportsLstbox.Items.Count - 1;
+            //InitTransportTypes();
             UpdateListTransports();
-        }
-
-        private void ChangeTransportBtn_Click(object sender, EventArgs e)
-        {
-            if (TransportsLstbox.SelectedItem != null)
-            {
-                new FormTransportEditor(TransportsLstbox.SelectedItem as Transport).ShowDialog();
-            }
-            UpdateListTransports();
+            UpdateTransportView();
         }
 
         private void CreateCopyTransportBtn_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace EasyTransport
             if (selectedTransport != null)
             {
                 new Transport(selectedTransport.SerieName, selectedTransport.SerialNumber, selectedTransport.Mark,
-                    selectedTransport.TransportType);
+                    selectedTransport.TransportType, selectedTransport.AverageSpeed, selectedTransport.Description);
             }
             UpdateListTransports();
         }
@@ -101,6 +101,35 @@ namespace EasyTransport
         private void TransportTypeCmbbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateListTransports();
+        }
+
+        private void SaveTransport_Click(object sender, EventArgs e)
+        {
+            _nowTransport.TransportType = (TransportType) TransportTypeCmbbox.SelectedIndex;
+            _nowTransport.Mark = MarkTxtbox.Text;
+            _nowTransport.SerieName = SerieTxtbox.Text;
+            _nowTransport.SerialNumber = SerialNumberTxtbox.Text;
+            _nowTransport.AverageSpeed = (double) AverageSpeedNumUpDown.Value;
+            _nowTransport.Description = DescriptionTextbox.Text;
+        }
+
+        private void TransportsLstbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _nowTransport = TransportsLstbox.SelectedItem as Transport;
+            if (_nowTransport != null)
+            {
+                UpdateTransportView();
+            }
+        }
+
+        private void UpdateTransportView()
+        {
+            TransportTypeCmbbox.SelectedIndex = (int)_nowTransport.TransportType;
+            MarkTxtbox.Text = _nowTransport.Mark;
+            SerieTxtbox.Text = _nowTransport.SerieName;
+            SerialNumberTxtbox.Text = _nowTransport.SerialNumber;
+            AverageSpeedNumUpDown.Value = (decimal) _nowTransport.AverageSpeed;
+            DescriptionTextbox.Text = _nowTransport.Description;
         }
     }
 }

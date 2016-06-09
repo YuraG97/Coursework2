@@ -207,5 +207,11 @@ namespace EasyTransport
                 InitSavedParametrs();
             }
         }
+
+        private void TransportTypeCmbbox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            _nowRoute.RouteTransportType = (TransportType) TransportTypeCmbbox.SelectedIndex;
+            UpdateRouteView();
+        }
     }
 }

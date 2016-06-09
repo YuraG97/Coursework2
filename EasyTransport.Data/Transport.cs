@@ -14,7 +14,8 @@ namespace EasyTransport.Data
         public string SerialNumber { get; set; }
         public string Mark { get; set; }
         public TransportType TransportType { get; set; }
-        public double AllDistance { get; set; }
+        public double AverageSpeed { get; set; }
+        public string Description { get; set; }
 
         public Transport()
         {
@@ -27,11 +28,20 @@ namespace EasyTransport.Data
             Mark = mark;
             TransportType = transportType;
         }
+        public Transport(string serieName, string serialNumber, string mark, TransportType transportType, double averageSpeed, string description)
+        {
+            SerieName = serieName;
+            SerialNumber = serialNumber;
+            Mark = mark;
+            TransportType = transportType;
+            AverageSpeed = averageSpeed;
+            Description = description;
+        }
 
         public override string ToString()
         {
-            string res = string.Format("{0}-{1}-{2}-{3}-{4}", TransportType, Mark, SerieName, SerialNumber,
-                Id.ToString("N"));
+            string res = string.Format("{0}-{1}-{2}-{3}-#{4}", TransportType, Mark, SerieName, SerialNumber,
+                Id.ToByteArray()[0]);
             return res;
         }
 
