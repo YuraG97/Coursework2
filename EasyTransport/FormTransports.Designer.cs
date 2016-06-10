@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransports));
             this.CreateCopyTransportBtn = new System.Windows.Forms.Button();
+            this.IconsList = new System.Windows.Forms.ImageList(this.components);
             this.RemoveTransportBtn = new System.Windows.Forms.Button();
             this.AddNewTransportBtn = new System.Windows.Forms.Button();
             this.FilterTransportTypeCmbbox = new System.Windows.Forms.ComboBox();
@@ -38,20 +39,19 @@
             this.TransportsLstbox = new System.Windows.Forms.ListBox();
             this.TransportListGroup = new System.Windows.Forms.GroupBox();
             this.TransportEditGroup = new System.Windows.Forms.GroupBox();
-            this.SerialNumberTxtbox = new System.Windows.Forms.TextBox();
-            this.SerieTxtbox = new System.Windows.Forms.TextBox();
-            this.MarkTxtbox = new System.Windows.Forms.TextBox();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.DescriptionTextbox = new System.Windows.Forms.RichTextBox();
+            this.AverageSpeedLabel = new System.Windows.Forms.Label();
+            this.AverageSpeedNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.SerialNumLbl = new System.Windows.Forms.Label();
+            this.SerialNumberTxtbox = new System.Windows.Forms.TextBox();
             this.SerieLbl = new System.Windows.Forms.Label();
             this.MarkLbl = new System.Windows.Forms.Label();
-            this.SaveTransport = new System.Windows.Forms.Button();
-            this.TransportTypeCmbbox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.AverageSpeedNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.AverageSpeedLabel = new System.Windows.Forms.Label();
-            this.DescriptionTextbox = new System.Windows.Forms.RichTextBox();
-            this.DescriptionLabel = new System.Windows.Forms.Label();
-            this.IconsList = new System.Windows.Forms.ImageList(this.components);
+            this.SerieTxtbox = new System.Windows.Forms.TextBox();
+            this.SaveTransport = new System.Windows.Forms.Button();
+            this.MarkTxtbox = new System.Windows.Forms.TextBox();
+            this.TransportTypeCmbbox = new System.Windows.Forms.ComboBox();
             this.TransportLabel = new System.Windows.Forms.Label();
             this.TransportListGroup.SuspendLayout();
             this.TransportEditGroup.SuspendLayout();
@@ -73,6 +73,15 @@
             this.CreateCopyTransportBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CreateCopyTransportBtn.UseVisualStyleBackColor = true;
             this.CreateCopyTransportBtn.Click += new System.EventHandler(this.CreateCopyTransportBtn_Click);
+            // 
+            // IconsList
+            // 
+            this.IconsList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconsList.ImageStream")));
+            this.IconsList.TransparentColor = System.Drawing.Color.Transparent;
+            this.IconsList.Images.SetKeyName(0, "addTransport.jpg");
+            this.IconsList.Images.SetKeyName(1, "copy.png");
+            this.IconsList.Images.SetKeyName(2, "deleteIcon.png");
+            this.IconsList.Images.SetKeyName(3, "saveIcon.png");
             // 
             // RemoveTransportBtn
             // 
@@ -108,6 +117,7 @@
             // 
             // FilterTransportTypeCmbbox
             // 
+            this.FilterTransportTypeCmbbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FilterTransportTypeCmbbox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FilterTransportTypeCmbbox.FormattingEnabled = true;
             this.FilterTransportTypeCmbbox.Location = new System.Drawing.Point(141, 21);
@@ -177,26 +187,38 @@
             this.TransportEditGroup.TabStop = false;
             this.TransportEditGroup.Text = "Редагування транспорту";
             // 
-            // SerialNumberTxtbox
+            // DescriptionLabel
             // 
-            this.SerialNumberTxtbox.Location = new System.Drawing.Point(166, 179);
-            this.SerialNumberTxtbox.Name = "SerialNumberTxtbox";
-            this.SerialNumberTxtbox.Size = new System.Drawing.Size(200, 27);
-            this.SerialNumberTxtbox.TabIndex = 37;
+            this.DescriptionLabel.AutoSize = true;
+            this.DescriptionLabel.Location = new System.Drawing.Point(6, 248);
+            this.DescriptionLabel.Name = "DescriptionLabel";
+            this.DescriptionLabel.Size = new System.Drawing.Size(45, 20);
+            this.DescriptionLabel.TabIndex = 41;
+            this.DescriptionLabel.Text = "Опис";
             // 
-            // SerieTxtbox
+            // DescriptionTextbox
             // 
-            this.SerieTxtbox.Location = new System.Drawing.Point(166, 146);
-            this.SerieTxtbox.Name = "SerieTxtbox";
-            this.SerieTxtbox.Size = new System.Drawing.Size(200, 27);
-            this.SerieTxtbox.TabIndex = 36;
+            this.DescriptionTextbox.Location = new System.Drawing.Point(166, 245);
+            this.DescriptionTextbox.Name = "DescriptionTextbox";
+            this.DescriptionTextbox.Size = new System.Drawing.Size(200, 140);
+            this.DescriptionTextbox.TabIndex = 40;
+            this.DescriptionTextbox.Text = "";
             // 
-            // MarkTxtbox
+            // AverageSpeedLabel
             // 
-            this.MarkTxtbox.Location = new System.Drawing.Point(166, 113);
-            this.MarkTxtbox.Name = "MarkTxtbox";
-            this.MarkTxtbox.Size = new System.Drawing.Size(200, 27);
-            this.MarkTxtbox.TabIndex = 35;
+            this.AverageSpeedLabel.AutoSize = true;
+            this.AverageSpeedLabel.Location = new System.Drawing.Point(6, 214);
+            this.AverageSpeedLabel.Name = "AverageSpeedLabel";
+            this.AverageSpeedLabel.Size = new System.Drawing.Size(141, 20);
+            this.AverageSpeedLabel.TabIndex = 39;
+            this.AverageSpeedLabel.Text = "Середня швидкість";
+            // 
+            // AverageSpeedNumUpDown
+            // 
+            this.AverageSpeedNumUpDown.Location = new System.Drawing.Point(166, 212);
+            this.AverageSpeedNumUpDown.Name = "AverageSpeedNumUpDown";
+            this.AverageSpeedNumUpDown.Size = new System.Drawing.Size(200, 27);
+            this.AverageSpeedNumUpDown.TabIndex = 38;
             // 
             // SerialNumLbl
             // 
@@ -206,6 +228,13 @@
             this.SerialNumLbl.Size = new System.Drawing.Size(125, 20);
             this.SerialNumLbl.TabIndex = 34;
             this.SerialNumLbl.Text = "Серійний номер";
+            // 
+            // SerialNumberTxtbox
+            // 
+            this.SerialNumberTxtbox.Location = new System.Drawing.Point(166, 179);
+            this.SerialNumberTxtbox.Name = "SerialNumberTxtbox";
+            this.SerialNumberTxtbox.Size = new System.Drawing.Size(200, 27);
+            this.SerialNumberTxtbox.TabIndex = 37;
             // 
             // SerieLbl
             // 
@@ -225,6 +254,24 @@
             this.MarkLbl.TabIndex = 32;
             this.MarkLbl.Text = "Марка";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(6, 80);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Тип транспорту";
+            // 
+            // SerieTxtbox
+            // 
+            this.SerieTxtbox.Location = new System.Drawing.Point(166, 146);
+            this.SerieTxtbox.Name = "SerieTxtbox";
+            this.SerieTxtbox.Size = new System.Drawing.Size(200, 27);
+            this.SerieTxtbox.TabIndex = 36;
+            // 
             // SaveTransport
             // 
             this.SaveTransport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -240,67 +287,22 @@
             this.SaveTransport.UseVisualStyleBackColor = true;
             this.SaveTransport.Click += new System.EventHandler(this.SaveTransport_Click);
             // 
+            // MarkTxtbox
+            // 
+            this.MarkTxtbox.Location = new System.Drawing.Point(166, 113);
+            this.MarkTxtbox.Name = "MarkTxtbox";
+            this.MarkTxtbox.Size = new System.Drawing.Size(200, 27);
+            this.MarkTxtbox.TabIndex = 35;
+            // 
             // TransportTypeCmbbox
             // 
+            this.TransportTypeCmbbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TransportTypeCmbbox.FormattingEnabled = true;
             this.TransportTypeCmbbox.Location = new System.Drawing.Point(166, 77);
             this.TransportTypeCmbbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TransportTypeCmbbox.Name = "TransportTypeCmbbox";
             this.TransportTypeCmbbox.Size = new System.Drawing.Size(200, 28);
             this.TransportTypeCmbbox.TabIndex = 30;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(6, 80);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 20);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Тип транспорту";
-            // 
-            // AverageSpeedNumUpDown
-            // 
-            this.AverageSpeedNumUpDown.Location = new System.Drawing.Point(166, 212);
-            this.AverageSpeedNumUpDown.Name = "AverageSpeedNumUpDown";
-            this.AverageSpeedNumUpDown.Size = new System.Drawing.Size(200, 27);
-            this.AverageSpeedNumUpDown.TabIndex = 38;
-            // 
-            // AverageSpeedLabel
-            // 
-            this.AverageSpeedLabel.AutoSize = true;
-            this.AverageSpeedLabel.Location = new System.Drawing.Point(6, 214);
-            this.AverageSpeedLabel.Name = "AverageSpeedLabel";
-            this.AverageSpeedLabel.Size = new System.Drawing.Size(141, 20);
-            this.AverageSpeedLabel.TabIndex = 39;
-            this.AverageSpeedLabel.Text = "Середня швидкість";
-            // 
-            // DescriptionTextbox
-            // 
-            this.DescriptionTextbox.Location = new System.Drawing.Point(166, 245);
-            this.DescriptionTextbox.Name = "DescriptionTextbox";
-            this.DescriptionTextbox.Size = new System.Drawing.Size(200, 140);
-            this.DescriptionTextbox.TabIndex = 40;
-            this.DescriptionTextbox.Text = "";
-            // 
-            // DescriptionLabel
-            // 
-            this.DescriptionLabel.AutoSize = true;
-            this.DescriptionLabel.Location = new System.Drawing.Point(6, 248);
-            this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(45, 20);
-            this.DescriptionLabel.TabIndex = 41;
-            this.DescriptionLabel.Text = "Опис";
-            // 
-            // IconsList
-            // 
-            this.IconsList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconsList.ImageStream")));
-            this.IconsList.TransparentColor = System.Drawing.Color.Transparent;
-            this.IconsList.Images.SetKeyName(0, "addTransport.jpg");
-            this.IconsList.Images.SetKeyName(1, "copy.png");
-            this.IconsList.Images.SetKeyName(2, "deleteIcon.png");
-            this.IconsList.Images.SetKeyName(3, "saveIcon.png");
             // 
             // TransportLabel
             // 

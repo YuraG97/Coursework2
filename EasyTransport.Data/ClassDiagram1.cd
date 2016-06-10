@@ -1,35 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="EasyTransport.Data.Road">
-    <Position X="3.5" Y="2.75" Width="1.75" />
+    <Position X="2.5" Y="2.75" Width="2.25" />
     <Members>
       <Property Name="Stop1Id" Hidden="true" />
       <Property Name="Stop2Id" Hidden="true" />
     </Members>
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAgCABEAEAABABEAGBAEIAAAAACAAAAIAA=</HashCode>
+      <HashCode>AAIAAAAAAAAgCABEAEAABABAACBAEIAAAAACAAAAAAA=</HashCode>
       <FileName>Road.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EasyTransport.Data.Stop">
-    <Position X="0.5" Y="3.75" Width="2.25" />
+    <Position X="2.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAAAEAAAAAAQAISBAAAAQAQgAACAAIAQ=</HashCode>
+      <HashCode>ABAAAAAAAAAgAAAEAAAAAAQAISBAAAAQAQgAACAAAAQ=</HashCode>
       <FileName>Stop.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="EasyTransport.Data.Route">
-    <Position X="6" Y="0.75" Width="2" />
+    <Position X="2.5" Y="6.25" Width="2.25" />
     <Members>
       <Property Name="StopStartId" Hidden="true" />
       <Property Name="StopStartInvDirId" Hidden="true" />
     </Members>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="EasyTransport.Data.DataBase&lt;T&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="1.656" Y="3.276" />
+        <Point X="1.656" Y="6.9" />
+        <Point X="1.776" Y="6.9" Type="JumpStart" />
+        <Point X="1.943" Y="6.9" Type="JumpEnd" />
+        <Point X="2.5" Y="6.9" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAADIAhMAgAACgAEgAgABAQAAyBKAgBAAQAAAACAAAA=</HashCode>
+      <HashCode>AAADIAhMAgAACgAEgAgABAQAAyBKQgBEAQAAAACgAAA=</HashCode>
       <FileName>Route.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -42,28 +60,73 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EasyTransport.Data.Trip">
-    <Position X="8.75" Y="0.75" Width="1.75" />
+    <Position X="5.75" Y="6.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="EasyTransport.Data.DataBase&lt;T&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="1.859" Y="3.276" />
+        <Point X="1.859" Y="7.925" />
+        <Point X="6.875" Y="7.925" />
+        <Point X="6.875" Y="7.55" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAQAAAAEAEAAAAQQAGBAAAAAAAAAgEAAAAA=</HashCode>
+      <HashCode>AAQAQAAAAAQAAAAEAEAAAAQQAGBAAAAAAAAAgEAAAAA=</HashCode>
       <FileName>Trip.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EasyTransport.Data.Transport">
-    <Position X="11.25" Y="0.75" Width="1.75" />
+    <Position X="5.75" Y="4" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="EasyTransport.Data.DataBase&lt;T&gt;" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.25" Y="3.276" />
+        <Point X="1.25" Y="8.501" />
+        <Point X="8.375" Y="8.501" />
+        <Point X="8.375" Y="4.688" />
+        <Point X="8" Y="4.688" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAACAAEAAAAAAAAACFAAAAAAACgAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAAAAAgCAAEAAAAAAAEACFAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Transport.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EasyTransport.Data.PathFinder">
-    <Position X="11.25" Y="5" Width="1.75" />
+    <Position X="7.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAIAAAgAAAAAAAEAAAAAAAAAAAYAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PathFinder.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="EasyTransport.Data.RoadOnRoute" Collapsed="true">
+    <Position X="2.5" Y="4.75" Width="2.25" />
+    <InheritanceLine Type="EasyTransport.Data.DataBase&lt;T&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="0.844" Y="3.276" />
+        <Point X="0.844" Y="5.096" />
+        <Point X="1.167" Y="5.096" Type="JumpStart" />
+        <Point X="1.333" Y="5.096" Type="JumpEnd" />
+        <Point X="1.573" Y="5.096" Type="JumpStart" />
+        <Point X="1.74" Y="5.096" Type="JumpEnd" />
+        <Point X="1.776" Y="5.096" Type="JumpStart" />
+        <Point X="1.943" Y="5.096" Type="JumpEnd" />
+        <Point X="2.5" Y="5.096" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgIEAAAIAQACBgAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>RoadOnRoute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="EasyTransport.Data.IGraphNode&lt;T&gt;">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>IGraphNode.cs</FileName>

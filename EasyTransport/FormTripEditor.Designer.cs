@@ -44,6 +44,8 @@
             // 
             // ScheduleDataGrid
             // 
+            this.ScheduleDataGrid.AllowUserToAddRows = false;
+            this.ScheduleDataGrid.AllowUserToDeleteRows = false;
             this.ScheduleDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ScheduleDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StopsNames,

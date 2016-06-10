@@ -27,14 +27,13 @@ namespace EasyTransport
             InitializeComponent();
             _nowTrip = nowTrip;
             RoutesCmbbox.SelectedItem = _nowTrip.Route;
-            TripDateDtPicker.Value = _nowTrip.Schedule.First().First();
-            ScheduleDataGrid.Rows.Add(_nowTrip.Route.StopsDir.Count + _nowTrip.Route.StopsInversionDir.Count - 1);
+            ScheduleDataGrid.Rows.Add(_nowTrip.Route.StopsDir.Count + _nowTrip.Route.StopsInversionDir.Count);
             UpdateScheduleView();
+            TripDateDtPicker.Value = _nowTrip.Schedule.First().First();
         }
 
         private void UpdateScheduleView()
         {
-            //ScheduleDataGrid.Rows.Clear();
             for (int i = 0; i < _nowTrip.Route.Stops.Count; i++)
             {
                 var stop = _nowTrip.Route.Stops[i];
@@ -65,10 +64,10 @@ namespace EasyTransport
             if (RoutesCmbbox.SelectedIndex > -1)
             {
                 _nowTrip.Route = RoutesCmbbox.SelectedItem as Route;
-                ScheduleDataGrid.Rows.Add(_nowTrip.Route.StopsDir.Count + _nowTrip.Route.StopsInversionDir.Count - 1);
+                ScheduleDataGrid.Rows.Add(_nowTrip.Route.StopsDir.Count + _nowTrip.Route.StopsInversionDir.Count);
+                RoutesCmbbox.Enabled = false;
+                UpdateScheduleView();
             }
-            RoutesCmbbox.Enabled = false;
-            UpdateScheduleView();
         }
 
         private void ScheduleDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -85,6 +84,7 @@ namespace EasyTransport
         private void TripDateDtPicker_ValueChanged(object sender, EventArgs e)
         {
             _nowTrip.SetStartDate(TripDateDtPicker.Value);
+            UpdateScheduleView();
         }
     }
 }

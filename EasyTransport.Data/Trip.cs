@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -33,6 +34,7 @@ namespace EasyTransport.Data
         }
         public void SetTimePoint(DateTime dateTime, int row, int column)
         {
+            //Debug.WriteLine("Set time" + dateTime + " on " + row + ";" + column);
             var items = Schedule[row];
             var start = items[column];
             var diff = new TimeSpan(0, dateTime.Hour - start.Hour, dateTime.Minute - start.Minute,
@@ -73,8 +75,8 @@ namespace EasyTransport.Data
 
         public override string ToString()
         {
-            string res = string.Format("{3}-{0}-{1}-{2}", Schedule[0][0].ToLongTimeString(),
-                Schedule.Last()[2].ToLongTimeString(), Id.ToString("N"),Schedule.First()[0].ToLongDateString());
+            string res = string.Format("{3}-{0}-{1}-#{2}", Schedule[0][0].ToLongTimeString(),
+                Schedule.Last()[2].ToLongTimeString(), Id.ToByteArray()[0],Schedule.First()[0].ToLongDateString());
             return "\t" + res;
         }
 
@@ -82,7 +84,19 @@ namespace EasyTransport.Data
         public Transport Transport
         {
             get { return Transport.Items[TransportGuid]; }
-            set { TransportGuid = value.Id; }
+            set
+            {
+                if (TransportGuid == Guid.Empty)
+                {
+                    TransportGuid = value.Id;
+                    CountMovingTime();
+                }
+            }
+        }
+
+        private void CountMovingTime()
+        {
+            
         }
 
         [XmlIgnore]
@@ -91,12 +105,15 @@ namespace EasyTransport.Data
             get { return Route.Items[RouteGuid]; }
             set
             {
-                RouteGuid = value.Id;
-                var stops = value.Stops;
-                Schedule = new List<List<DateTime>>(stops.Count);
-                for (int i = 0; i < stops.Count; i++)
+                if (RouteGuid == Guid.Empty)
                 {
-                    Schedule.Add(new List<DateTime>(3) {new DateTime(), new DateTime(), new DateTime()});
+                    RouteGuid = value.Id;
+                    var stops = value.Stops;
+                    Schedule = new List<List<DateTime>>(stops.Count);
+                    for (int i = 0; i < stops.Count; i++)
+                    {
+                        Schedule.Add(new List<DateTime>(3) { DateTime.MinValue, DateTime.MinValue, DateTime.MinValue });
+                    }
                 }
             }
         }
